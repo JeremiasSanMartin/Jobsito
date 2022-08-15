@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "710673535008",
+    "project_id": "fir-1-jeremias-2022",
+    "storage_bucket": "fir-1-jeremias-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710673535008:android:f8c164221933987f226c45",
+        "android_client_info": {
+          "package_name": "com.example.jobsito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710673535008-rcosq8jb8h5q64vrjq7h5lb3b0t9df2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmXwb1K7LJsTS0i_w5DFo4xP5KLLD8ZdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710673535008-rcosq8jb8h5q64vrjq7h5lb3b0t9df2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
