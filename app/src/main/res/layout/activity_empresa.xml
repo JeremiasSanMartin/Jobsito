@@ -36,7 +36,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="Email"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -58,7 +58,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -80,7 +80,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -102,7 +102,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -124,7 +124,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -146,7 +146,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -168,7 +168,7 @@
             android:layout_height="25dp"
             android:fontFamily="@font/baloo"
             android:text="."
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/black"
             android:textSize="17dp" />
 
         <Space
@@ -259,11 +259,12 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/publicarButton"
                 android:layout_width="wrap_content"
-                android:layout_height="49dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="3dp"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_baseline_add_24"
+                app:backgroundTint="@color/teal_700"
                 app:fabSize="auto"
                 tools:ignore="MissingConstraints" />
 
