@@ -94,6 +94,12 @@ class InicioActivity : AppCompatActivity() {
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
+                        for (text in posts){
+                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)){
+                                displayList.add(text)
+                            }
+                            rv.adapter!!.notifyDataSetChanged()
+                        }
                         //otros for para otras busquedas
 
                         //en caso de que sea nulo no muestra ningun post
