@@ -3,6 +3,7 @@ package com.example.jobsito
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.installations.Utils
@@ -23,19 +24,30 @@ class publicEmActivity : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
 
+
         publicButton.setOnClickListener{
-            val postString = postTextView.text.toString()
-            val date = Date()
-            val userName = email
+            if (postTextView.text.toString() == ""){
+                Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
+            }else{
 
-            val post = Post(postString, date, userName)
-            db.collection("posts").add(post)
-                .addOnSuccessListener {
-                   finish()
+                val postString = postTextView.text.toString()
+                val date = Date()
+                val userName = email
 
-                }.addOnFailureListener {
-                    println("error en crear el post")
-                }
+                val post = Post(postString, date, userName)
+                db.collection("posts").add(post)
+                    .addOnSuccessListener {
+                        finish()
+
+                    }.addOnFailureListener {
+                        println("error en crear el post")
+                    }
+            }
+
+        }
+
+        cancelButton.setOnClickListener{
+            onBackPressed()
         }
     }
 }
