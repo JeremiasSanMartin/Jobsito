@@ -8,6 +8,15 @@
     android:background="#ECEFF1"
     tools:context=".InicioEmActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"

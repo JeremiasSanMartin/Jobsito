@@ -5,13 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_inicio.*
 import java.util.*
 
@@ -25,9 +21,7 @@ class InicioActivity : AppCompatActivity() {
         //toma el email de google para enviarlo a otra pantalla
         val bundle = intent.extras
         val email = bundle?.getString("email")
-
-
-
+        title = null
         //toma el post de la base de datos y lo muestra con apply
         db.collection("posts").addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
@@ -37,21 +31,14 @@ class InicioActivity : AppCompatActivity() {
 
             //guarda en una lista alternativa todos los datos para despues hacer la busqueda
             displayList.addAll(posts)
-            rv.apply {
-                setHasFixedSize(true)
-                layoutManager = LinearLayoutManager(this@InicioActivity)
-                adapter = PostAdapter(this@InicioActivity, displayList)
-            }
+                rv.apply {
+                    setHasFixedSize(true)
+                    layoutManager = LinearLayoutManager(this@InicioActivity)
+                    adapter = PostAdapter(this@InicioActivity, displayList)
+                        }
+
 
         }
-
-
-
-
-
-
-        title = null
-
 
         //boton para moverse entre pantallas
         perfilButton2.setOnClickListener{

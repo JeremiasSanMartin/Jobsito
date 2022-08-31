@@ -13,15 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.abt.FirebaseABTesting
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.installations.Utils
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.card_post.*
 import kotlinx.android.synthetic.main.card_post.view.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 //adaptador para usar el post en el recycle view, esta es la clase donde viene la informacion de los post
 class PostAdapter(private val activity: Activity, private val dataset: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
-
     class ViewHolder(val layout: View): RecyclerView.ViewHolder(layout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -81,6 +83,26 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
 
             val shareIntent = Intent.createChooser(sendIntent, null)
             activity.startActivity(shareIntent)
+        }
+        //comprueba si sos una empresa para mostrar el boton de borrar
+        var tipo: String? = ""
+
+        db.collection("users").document(post.userName!!).collection("prueba").document("prueba").get().addOnSuccessListener { documento ->
+            tipo = documento.data?.get("tipo").toString()
+
+            if (tipo.equals("empresa")){
+                println(tipo)
+                holder.layout.delBtn.visibility = View.VISIBLE
+            }
+        }
+
+        //hace la accion de eliminar el post de la base de datos al tocarse el boton
+        holder.layout.delBtn.setOnClickListener{
+            db.collection("posts").document(post.uid!!).delete().addOnSuccessListener {
+
+            }.addOnFailureListener {
+                println("error")
+            }
         }
     }
 

@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
-       //splash
+        //splash
         setTheme(R.style.Theme_Jobsito)
 
         super.onCreate(savedInstanceState)
@@ -52,7 +52,12 @@ class MainActivity : AppCompatActivity() {
         //accedemos a ella y le asignamos nuestra configuracion
         firebaseConfig.setConfigSettingsAsync(configSettings)
         //configurar valores por defecto de nuestras variables remotas
-        firebaseConfig.setDefaultsAsync(mapOf("show_error_button" to false, "error_button_text" to ""))
+        firebaseConfig.setDefaultsAsync(
+            mapOf(
+                "show_error_button" to false,
+                "error_button_text" to ""
+            )
+        )
 
 
         //setup
@@ -61,10 +66,7 @@ class MainActivity : AppCompatActivity() {
         notification()
 
 
-
     }
-
-
 
 
     //inicio de sesion una vez comprueba la cuenta de google
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
 
-        if (email != null ) {
+        if (email != null) {
             authLayout.visibility = View.INVISIBLE
             imageView2.visibility = View.INVISIBLE
             gifCarga.visibility = View.VISIBLE
@@ -84,9 +86,9 @@ class MainActivity : AppCompatActivity() {
 
     //comprueba si tenemos un id de dispositivo unico y en caso de que exista lo imprime en consola
     //nos da un token con el cual podemos enviar notificacion a un unico usuario
-    private fun notification(){
+    private fun notification() {
 
-        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener{
+        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener {
             it.result?.token?.let {
                 println("este es el token del despositivo ${it}")
             }
@@ -95,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//funcion principal del inicio de la aplicacion
+    //funcion principal del inicio de la aplicacion
     private fun setup() {
 
         title = "Bienvenido a Jobsito"
@@ -126,30 +128,32 @@ class MainActivity : AppCompatActivity() {
 
     //funcion para mostrar la pagina de inicio dependiendo si el usuario es una empresa, una persona, o es nueva en la app
     private fun showHome(email: String) {
-    var tipo: String? = ""
 
-        db.collection("users").document(email).collection("prueba").document("prueba").get().addOnSuccessListener { documento ->
-        tipo = documento.data?.get("tipo").toString()
+        var tipo: String? = ""
 
-        if(tipo == "trabajo") {
+        db.collection("users").document(email).collection("prueba").document("prueba").get()
+            .addOnSuccessListener { documento ->
+                tipo = documento.data?.get("tipo").toString()
 
-            val inicioIntent = Intent(this, HomeActivity::class.java).apply {
-                putExtra("email", email)
+                if (tipo == "trabajo") {
+
+                    val inicioIntent = Intent(this, HomeActivity::class.java).apply {
+                        putExtra("email", email)
+                    }
+                    startActivity(inicioIntent)
+                } else if (tipo == "empresa") {
+                    val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
+                        putExtra("email", email)
+                    }
+                    startActivity(empresaIntent)
+                } else {
+
+                    val chooseIntent = Intent(this, chooseActivity::class.java).apply {
+                        putExtra("email", email)
+                    }
+                    startActivity(chooseIntent)
+                }
             }
-            startActivity(inicioIntent)
-        }else if (tipo == "empresa") {
-            val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
-                putExtra("email", email)
-            }
-            startActivity(empresaIntent)
-        }else{
-
-            val chooseIntent = Intent(this, chooseActivity::class.java).apply {
-                putExtra("email", email)
-            }
-            startActivity(chooseIntent)
-        }
-        }
     }
 
     //comprobacion de google una vez ingresada la cuenta
@@ -162,24 +166,26 @@ class MainActivity : AppCompatActivity() {
             try {
 
 
-            val account = task.getResult(ApiException::class.java)
+                val account = task.getResult(ApiException::class.java)
 
-            if (account != null) {
+                if (account != null) {
 
-                val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
 
-                FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
-                    if (it.isSuccessful) {
-                        showHome(account.email ?:"")
-                    } else {
-                        showAlert()
-                    }
+                    FirebaseAuth.getInstance().signInWithCredential(credential)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                showHome(account.email ?: "")
+                            } else {
+                                showAlert()
+                            }
+                        }
+
                 }
-
-            }
-            }catch (e:ApiException){
+            } catch (e: ApiException) {
                 showAlert()
             }
         }
     }
+
 }
