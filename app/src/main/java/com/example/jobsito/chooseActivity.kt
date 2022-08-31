@@ -22,10 +22,11 @@ class chooseActivity : AppCompatActivity() {
         //toma el email de google para enviarlo a otra pantalla
         val bundle = intent.extras
         val email = bundle?.getString("email")
-        setup(email?:"")
+        setup(email ?: "")
 
 
     }
+
     private fun setup(email: String) {
         //comprueba que radio button esta seleccionado y muestra la pantalla correspondiente dandole una categoria al usuario, en caso de que no se elija ninguno da un mensaje
         continuarButton.setOnClickListener {
@@ -59,13 +60,13 @@ class chooseActivity : AppCompatActivity() {
                     putExtra("email", email)
                 }
 
-                    //este codigo subscribe al usuario al tema "Empresa" para enviar notificaciones personalizadas
-                    FirebaseMessaging.getInstance().subscribeToTopic("Empresa")
+                //este codigo subscribe al usuario al tema "Empresa" para enviar notificaciones personalizadas
+                FirebaseMessaging.getInstance().subscribeToTopic("Empresa")
 
-                    Toast.makeText(this, "ingreso como Empresa", Toast.LENGTH_SHORT).show()
-                    startActivity(empresaIntent)
+                Toast.makeText(this, "ingreso como Empresa", Toast.LENGTH_SHORT).show()
+                startActivity(empresaIntent)
 
-            }else {
+            } else {
                 Toast.makeText(this, "Debe seleccionar 1", Toast.LENGTH_SHORT).show()
             }
 

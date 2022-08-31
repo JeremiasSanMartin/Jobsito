@@ -24,25 +24,26 @@ class HomeActivity : AppCompatActivity() {
 
         //setup
         val bundle = intent.extras
-        val email =bundle?.getString("email")
-        setup(email?:"")
-        Actualizar(email?:"")
+        val email = bundle?.getString("email")
+        setup(email ?: "")
+        Actualizar(email ?: "")
 
 
         //guarda los datos del inicio de sesion del usuario hasta que este mismo decida cerrar la sesion
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email",email)
+        val prefs =
+            getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
         prefs.apply()
 
         //boton que envia a la pantalla de modificar el perfil
-        modificarButton.setOnClickListener{
+        modificarButton.setOnClickListener {
             val intent = Intent(this, ModificarActivity::class.java).apply {
                 putExtra("email", email)
             }
             startActivity(intent)
         }
 //boton de movimiento entre pantallas
-        inicioButton.setOnClickListener{
+        inicioButton.setOnClickListener {
             val inicioIntent = Intent(this, InicioActivity::class.java).apply {
 
                 //envia el email
@@ -56,10 +57,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     //override para que el boton hacia atras salga de la app
-    private var backPressedTime:Long = 0
+    private var backPressedTime: Long = 0
     lateinit var backToast: Toast
     override fun onBackPressed() {
-        backToast = Toast.makeText(this, "Preciona atras otra vez para salir de la app.", Toast.LENGTH_LONG)
+        backToast =
+            Toast.makeText(this, "Preciona atras otra vez para salir de la app.", Toast.LENGTH_LONG)
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel()
             finishAffinity()
@@ -71,28 +73,29 @@ class HomeActivity : AppCompatActivity() {
     }
 
     //funcion para actualizar los datos del usuario tomados de la BD
-    private fun Actualizar(email:String) {
+    private fun Actualizar(email: String) {
         emailTextView.text = email
         db.collection("users").document(email).get().addOnSuccessListener {
-            localidadShowTextView.setText(it.get("localidad")as String?)
-            fullNameShowTextView.setText(it.get("nombrecompleto")as String?)
-            phoneShowTextView.setText(it.get("phone")as String?)
-            dniShowTextView.setText(it.get("dni")as String?)
-            tituloShowTextView.setText(it.get("titulo")as String?)
+            localidadShowTextView.setText(it.get("localidad") as String?)
+            fullNameShowTextView.setText(it.get("nombrecompleto") as String?)
+            phoneShowTextView.setText(it.get("phone") as String?)
+            dniShowTextView.setText(it.get("dni") as String?)
+            tituloShowTextView.setText(it.get("titulo") as String?)
         }
     }
 
-    private fun setup(email:String){
+    private fun setup(email: String) {
         title = "Perfil"
         emailTextView.text = email
 
 
 
 
-        logOutButton.setOnClickListener{
+        logOutButton.setOnClickListener {
 
             //borrar datos los datos anteriores al cerrar sesion
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            val prefs =
+                getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
             FirebaseAuth.getInstance().signOut()
@@ -102,9 +105,6 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent)
 
         }
-
-
-
 
 
     }

@@ -26,20 +26,21 @@ class EmpresaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_empresa)
         //setup
         val bundle = intent.extras
-        val email =bundle?.getString("email")
-        setup(email?:"")
+        val email = bundle?.getString("email")
+        setup(email ?: "")
 
         val myHandler = Handler(Looper.getMainLooper())
         myHandler.post(object : Runnable {
             override fun run() {
-                Actualizar(email?:"")
+                Actualizar(email ?: "")
                 myHandler.postDelayed(this, 100 /*0,5 segundos*/)
             }
         })
 
         //guarda los datos del inicio de sesion del usuario hasta que este mismo decida cerrar la sesion
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email",email)
+        val prefs =
+            getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
         prefs.apply()
 
         //boton que envia a la pantalla de modificar el perfil
@@ -52,7 +53,7 @@ class EmpresaActivity : AppCompatActivity() {
         }
 
         //boton de movimiento entre pantallas
-        inicioButton.setOnClickListener{
+        inicioButton.setOnClickListener {
             val inicioIntent = Intent(this, InicioEmActivity::class.java).apply {
 
                 //envia el email
@@ -62,7 +63,7 @@ class EmpresaActivity : AppCompatActivity() {
             startActivity(inicioIntent)
         }
         //boton para ir a la pestaña de crear publicaciones
-        publicarButton.setOnClickListener{
+        publicarButton.setOnClickListener {
             val publicIntent = Intent(this, publicEmActivity::class.java).apply {
 
                 //envia el email
@@ -73,25 +74,25 @@ class EmpresaActivity : AppCompatActivity() {
     }
 
 
-
-
     //funcion para actualizar los datos del usuario tomados de la BD
-    private fun Actualizar(email:String) {
+    private fun Actualizar(email: String) {
         emailTextView.text = email
         db.collection("users").document(email).get().addOnSuccessListener {
-            direccionTextView.setText(it.get("direccion")as String?)
-            fullNameShowTextView.setText(it.get("nombreEmpresa")as String?)
-            phoneShowTextView.setText(it.get("phone")as String?)
-            cuitTextView.setText(it.get("cuit")as String?)
-            contactEmailTextView.setText(it.get("emailcontacto")as String?)
-            rubroShowTextView.setText(it.get("rubroTrabajo")as String?)
+            direccionTextView.setText(it.get("direccion") as String?)
+            fullNameShowTextView.setText(it.get("nombreEmpresa") as String?)
+            phoneShowTextView.setText(it.get("phone") as String?)
+            cuitTextView.setText(it.get("cuit") as String?)
+            contactEmailTextView.setText(it.get("emailcontacto") as String?)
+            rubroShowTextView.setText(it.get("rubroTrabajo") as String?)
         }
     }
+
     //override para que el boton hacia atras salga de la app
-    private var backPressedTime:Long = 0
+    private var backPressedTime: Long = 0
     lateinit var backToast: Toast
     override fun onBackPressed() {
-        backToast = Toast.makeText(this, "Preciona atras otra vez para salir de la app.", Toast.LENGTH_LONG)
+        backToast =
+            Toast.makeText(this, "Preciona atras otra vez para salir de la app.", Toast.LENGTH_LONG)
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel()
             finishAffinity()
@@ -101,17 +102,19 @@ class EmpresaActivity : AppCompatActivity() {
         }
         backPressedTime = System.currentTimeMillis()
     }
-    private fun setup(email:String){
+
+    private fun setup(email: String) {
         title = "Perfil"
         emailTextView.text = email
 
 
 
 
-        logOutButton.setOnClickListener{
+        logOutButton.setOnClickListener {
 
             //borrar datos los datos anteriores al cerrar sesion
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            val prefs =
+                getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
             FirebaseAuth.getInstance().signOut()
@@ -121,9 +124,6 @@ class EmpresaActivity : AppCompatActivity() {
             startActivity(Intent)
 
         }
-
-
-
 
 
     }

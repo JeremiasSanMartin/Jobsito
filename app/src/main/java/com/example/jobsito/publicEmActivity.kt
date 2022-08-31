@@ -25,10 +25,10 @@ class publicEmActivity : AppCompatActivity() {
         val email = bundle?.getString("email")
 
 
-        publicButton.setOnClickListener{
-            if (postTextView.text.toString() == ""){
+        publicButton.setOnClickListener {
+            if (postTextView.text.toString() == "") {
                 Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
 
                 val postString = postTextView.text.toString()
                 val date = Date()
@@ -46,7 +46,7 @@ class publicEmActivity : AppCompatActivity() {
 
         }
 
-        cancelButton.setOnClickListener{
+        cancelButton.setOnClickListener {
             onBackPressed()
         }
     }

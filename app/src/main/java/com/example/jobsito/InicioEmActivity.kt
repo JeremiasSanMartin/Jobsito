@@ -32,7 +32,7 @@ class InicioEmActivity : AppCompatActivity() {
         //toma el post de la base de datos y guarda todos en posts
         db.collection("posts").addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
-            posts.forEachIndexed{index, post ->
+            posts.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
             }
 
@@ -40,9 +40,9 @@ class InicioEmActivity : AppCompatActivity() {
             displayList.clear()
 
             //guarda en una lista alternativa las publicaciones de la empresa
-            for (emailEm in posts){
+            for (emailEm in posts) {
 
-                if (emailEm.userName!!.toLowerCase(Locale.getDefault()).contains(email!!)){
+                if (emailEm.userName!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
 
                     displayList.add(emailEm)
 
@@ -61,7 +61,7 @@ class InicioEmActivity : AppCompatActivity() {
         }
 
         //boton para moverse entre actividades
-        perfilButton2.setOnClickListener{
+        perfilButton2.setOnClickListener {
             //boton para moverse entre pantallas
             val homeIntent = Intent(this, EmpresaActivity::class.java).apply {
 
@@ -71,7 +71,7 @@ class InicioEmActivity : AppCompatActivity() {
             startActivity(homeIntent)
         }
         //boton para ir a la pestaña de crear publicaciones
-        publicarButton.setOnClickListener{
+        publicarButton.setOnClickListener {
             val publicIntent = Intent(this, publicEmActivity::class.java).apply {
 
                 //envia el email
@@ -80,6 +80,7 @@ class InicioEmActivity : AppCompatActivity() {
             startActivity(publicIntent)
         }
     }
+
     //funcion de busqueda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -88,22 +89,23 @@ class InicioEmActivity : AppCompatActivity() {
         var item: MenuItem = menu!!.findItem(R.id.action_search)
 
         //pregunta si el search view no esta vacio
-        if (item != null){
-            var searchView= item.actionView as SearchView
+        if (item != null) {
+            var searchView = item.actionView as SearchView
 
-            searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return true
                 }
+
                 //usa la query de textChange
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    if (newText!!.isNotEmpty()){
+                    if (newText!!.isNotEmpty()) {
                         displayList.clear()
                         var search = newText.toLowerCase(Locale.getDefault())
 
                         //comprueba si lo que se escribe esta en alguno de los campos
-                        for (text in filterList){
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)){
+                        for (text in filterList) {
+                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(text)
                             }
                             rvEm.adapter!!.notifyDataSetChanged()
@@ -111,7 +113,7 @@ class InicioEmActivity : AppCompatActivity() {
                         //otros for para otras busquedas
 
                         //en caso de que sea nulo no muestra ningun post
-                    }else{
+                    } else {
                         displayList.clear()
                         displayList.addAll(filterList)
                         rvEm.adapter!!.notifyDataSetChanged()

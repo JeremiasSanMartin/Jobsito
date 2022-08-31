@@ -21,18 +21,21 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 //adaptador para usar el post en el recycle view, esta es la clase donde viene la informacion de los post
-class PostAdapter(private val activity: Activity, private val dataset: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class PostAdapter(private val activity: Activity, private val dataset: List<Post>) :
+    RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
-    class ViewHolder(val layout: View): RecyclerView.ViewHolder(layout)
+
+    class ViewHolder(val layout: View) : RecyclerView.ViewHolder(layout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.card_post, parent, false)
 
         return ViewHolder(layout)
     }
-//darle la cantidad de items que hay
-    override fun getItemCount()= dataset.size
+
+    //darle la cantidad de items que hay
+    override fun getItemCount() = dataset.size
 
     //muestra la informacion del post
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -53,7 +56,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         setColor(liked, holder.layout.likeBtn)
 
         //controla si le doy like o no
-        holder.layout.likeBtn.setOnClickListener{
+        holder.layout.likeBtn.setOnClickListener {
             liked = !liked
             setColor(liked, holder.layout.likeBtn)
 
@@ -64,18 +67,17 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
             val doc = db.collection("posts").document(post.uid!!)
 
             //transacion para que no ocurra conflictos cuando varios usuarios dan like
-            db.runTransaction{
-                it.update(doc,"likes",likes)
+            db.runTransaction {
+                it.update(doc, "likes", likes)
 
                 null
             }
         }
 
 
-
         //funcion para el boton de compartir, este solo comparte un texto plano
-        holder.layout.shareBtn.setOnClickListener{
-            val sendIntent =  Intent().apply {
+        holder.layout.shareBtn.setOnClickListener {
+            val sendIntent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, post.post)
                 type = "text/plain"
@@ -87,17 +89,18 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         //comprueba si sos una empresa para mostrar el boton de borrar
         var tipo: String? = ""
 
-        db.collection("users").document(post.userName!!).collection("prueba").document("prueba").get().addOnSuccessListener { documento ->
+        db.collection("users").document(post.userName!!).collection("prueba").document("prueba")
+            .get().addOnSuccessListener { documento ->
             tipo = documento.data?.get("tipo").toString()
 
-            if (tipo.equals("empresa")){
+            if (tipo.equals("empresa")) {
                 println(tipo)
                 holder.layout.delBtn.visibility = View.VISIBLE
             }
         }
 
         //hace la accion de eliminar el post de la base de datos al tocarse el boton
-        holder.layout.delBtn.setOnClickListener{
+        holder.layout.delBtn.setOnClickListener {
             db.collection("posts").document(post.uid!!).delete().addOnSuccessListener {
 
             }.addOnFailureListener {
@@ -107,7 +110,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
     }
 
     //da el color si se dio like
-    private fun setColor(liked: Boolean, likeButton: Button){
+    private fun setColor(liked: Boolean, likeButton: Button) {
         if (liked) likeButton.setTextColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         else likeButton.setTextColor(Color.BLACK)
     }

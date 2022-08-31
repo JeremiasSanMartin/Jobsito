@@ -25,23 +25,23 @@ class InicioActivity : AppCompatActivity() {
         //toma el post de la base de datos y lo muestra con apply
         db.collection("posts").addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
-                posts.forEachIndexed{index, post ->
-                    post.uid = value.documents[index].id
-                }
+            posts.forEachIndexed { index, post ->
+                post.uid = value.documents[index].id
+            }
 
             //guarda en una lista alternativa todos los datos para despues hacer la busqueda
             displayList.addAll(posts)
-                rv.apply {
-                    setHasFixedSize(true)
-                    layoutManager = LinearLayoutManager(this@InicioActivity)
-                    adapter = PostAdapter(this@InicioActivity, displayList)
-                        }
+            rv.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@InicioActivity)
+                adapter = PostAdapter(this@InicioActivity, displayList)
+            }
 
 
         }
 
         //boton para moverse entre pantallas
-        perfilButton2.setOnClickListener{
+        perfilButton2.setOnClickListener {
 
             val homeIntent = Intent(this, HomeActivity::class.java).apply {
 
@@ -51,7 +51,7 @@ class InicioActivity : AppCompatActivity() {
             startActivity(homeIntent)
         }
 
-        }
+    }
 
     //busqueda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -61,28 +61,29 @@ class InicioActivity : AppCompatActivity() {
         var item: MenuItem = menu!!.findItem(R.id.action_search)
 
         //pregunta si el search view no esta vacio
-        if (item != null){
-            var searchView= item.actionView as SearchView
+        if (item != null) {
+            var searchView = item.actionView as SearchView
 
-            searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return true
                 }
+
                 //usa la query de textChange
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    if (newText!!.isNotEmpty()){
+                    if (newText!!.isNotEmpty()) {
                         displayList.clear()
                         var search = newText.toLowerCase(Locale.getDefault())
 
                         //comprueba si lo que se escribe esta en alguno de los emails
-                        for (name in posts){
-                            if (name.userName!!.toLowerCase(Locale.getDefault()).contains(search)){
+                        for (name in posts) {
+                            if (name.userName!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(name)
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
-                        for (text in posts){
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)){
+                        for (text in posts) {
+                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(text)
                             }
                             rv.adapter!!.notifyDataSetChanged()
@@ -90,7 +91,7 @@ class InicioActivity : AppCompatActivity() {
                         //otros for para otras busquedas
 
                         //en caso de que sea nulo no muestra ningun post
-                    }else{
+                    } else {
                         displayList.clear()
                         displayList.addAll(posts)
                         rv.adapter!!.notifyDataSetChanged()
@@ -103,4 +104,4 @@ class InicioActivity : AppCompatActivity() {
 
         return super.onCreateOptionsMenu(menu)
     }
-    }
+}

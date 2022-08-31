@@ -1,4 +1,5 @@
 package com.example.jobsito
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -69,15 +70,15 @@ class ModificarActivity : AppCompatActivity() {
     }
 
 
-    private fun obtenerDatos(email:String){
+    private fun obtenerDatos(email: String) {
         emailTextView2.text = email
         //obtiene el documento por email
         db.collection("users").document(email).get().addOnSuccessListener {
-            locationTextView.setText(it.get("localidad")as String?)
-            fullNameTextView.setText(it.get("nombrecompleto")as String?)
-            phoneTextView.setText(it.get("phone")as String?)
-            dniTextView.setText(it.get("dni")as String?)
-            tituloTextView.setText(it.get("titulo")as String?)
+            locationTextView.setText(it.get("localidad") as String?)
+            fullNameTextView.setText(it.get("nombrecompleto") as String?)
+            phoneTextView.setText(it.get("phone") as String?)
+            dniTextView.setText(it.get("dni") as String?)
+            tituloTextView.setText(it.get("titulo") as String?)
 
 
         }
