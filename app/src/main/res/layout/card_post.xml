@@ -125,17 +125,16 @@
         <Button
             android:id="@+id/delBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_width="99dp"
+            android:layout_height="47dp"
+            android:layout_marginRight="16dp"
             android:fontFamily="@font/baloo"
             android:text="Borrar"
             android:textColor="@color/black"
             android:textSize="14sp"
-            android:visibility="gone"
-            app:layout_constraintVertical_bias="0.562"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/likesCount"
             card_view:layout_constraintTop_toBottomOf="@+id/userCard" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

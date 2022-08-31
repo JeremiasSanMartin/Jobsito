@@ -2,11 +2,11 @@ package com.example.jobsito
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -16,12 +16,9 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import kotlinx.android.synthetic.main.activity_auth.*
-import pl.droidsonroids.gif.GifImageView
-import java.security.Provider
 
 
 class MainActivity : AppCompatActivity() {
@@ -128,8 +125,8 @@ class MainActivity : AppCompatActivity() {
 
     //funcion para mostrar la pagina de inicio dependiendo si el usuario es una empresa, una persona, o es nueva en la app
     private fun showHome(email: String) {
-
         var tipo: String? = ""
+
 
         db.collection("users").document(email).collection("prueba").document("prueba").get()
             .addOnSuccessListener { documento ->
@@ -178,12 +175,14 @@ class MainActivity : AppCompatActivity() {
                                 showHome(account.email ?: "")
                             } else {
                                 showAlert()
+                                Toast.makeText(this, "Error en firebase", Toast.LENGTH_SHORT).show()
                             }
                         }
 
                 }
             } catch (e: ApiException) {
                 showAlert()
+                Toast.makeText(this, "Error en catch", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -25,7 +25,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
     RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
-
+    private var Email = auth.currentUser!!.email
     class ViewHolder(val layout: View) : RecyclerView.ViewHolder(layout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -89,13 +89,16 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         //comprueba si sos una empresa para mostrar el boton de borrar
         var tipo: String? = ""
 
-        db.collection("users").document(post.userName!!).collection("prueba").document("prueba")
+        db.collection("users").document(Email!!).collection("prueba").document("prueba")
             .get().addOnSuccessListener { documento ->
             tipo = documento.data?.get("tipo").toString()
+
 
             if (tipo.equals("empresa")) {
                 println(tipo)
                 holder.layout.delBtn.visibility = View.VISIBLE
+                holder.layout.shareBtn.visibility = View.INVISIBLE
+                holder.layout.likeBtn.visibility = View.INVISIBLE
             }
         }
 
