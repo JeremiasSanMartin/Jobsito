@@ -75,7 +75,7 @@
             android:ems="10"
             android:fontFamily="@font/baloo"
             android:gravity="start|top"
-            android:hint="Descrpcion de tu empresa"
+            android:hint="Descripcion de tu empresa"
             android:inputType="textMultiLine" />
 
     </LinearLayout>
