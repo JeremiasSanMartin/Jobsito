@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.abt.FirebaseABTesting
 import com.google.firebase.auth.FirebaseAuth
@@ -44,6 +45,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         var liked = likes.contains(auth.uid)
 
         //añade los datos al post
+
         holder.layout.likesCount.text = "${likes.size} Likes"
         holder.layout.userCard.text = post.userName
         holder.layout.postCard.text = post.post
@@ -99,6 +101,18 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
                 holder.layout.delBtn.visibility = View.VISIBLE
                 holder.layout.shareBtn.visibility = View.INVISIBLE
                 holder.layout.likeBtn.visibility = View.INVISIBLE
+            }else{
+                holder.layout.setOnClickListener {
+
+                    //showProfile(Email)
+
+                    /*val profileIntent = Intent(this.activity, profileViewActivity::class.java).apply {
+                         putExtra("email", Email)
+                     }
+                     startActivity(profileIntent)*/
+
+
+                }
             }
         }
 
@@ -112,10 +126,17 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         }
     }
 
-    //da el color si se dio like
-    private fun setColor(liked: Boolean, likeButton: Button) {
-        if (liked) likeButton.setTextColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        else likeButton.setTextColor(Color.BLACK)
-    }
+/*private fun showProfile(){
+   val profileIntent = Intent(this, profileViewActivity::class.java).apply {
+       putExtra("email", email)
+   }
+   startActivity(profileIntent)
+}*/
+
+//da el color si se dio like
+private fun setColor(liked: Boolean, likeButton: Button) {
+   if (liked) likeButton.setTextColor(ContextCompat.getColor(activity, R.color.colorPrimary))
+   else likeButton.setTextColor(Color.BLACK)
+}
 
 }
