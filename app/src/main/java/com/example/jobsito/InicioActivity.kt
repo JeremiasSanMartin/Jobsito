@@ -28,13 +28,16 @@ class InicioActivity : AppCompatActivity() {
             posts.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
             }
-
             //guarda en una lista alternativa todos los datos para despues hacer la busqueda
-            displayList.addAll(posts)
+            displayList = value!!.toObjects(Post::class.java)
+            displayList.forEachIndexed { index, post ->
+                post.uid = value.documents[index].id
+            }
+
             rv.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@InicioActivity)
-                adapter = PostAdapter(this@InicioActivity, displayList)
+                adapter = PostAdapter(this@InicioActivity,  posts)
             }
 
 
@@ -72,19 +75,19 @@ class InicioActivity : AppCompatActivity() {
                 //usa la query de textChange
                 override fun onQueryTextChange(newText: String?): Boolean {
                     if (newText!!.isNotEmpty()) {
-                        displayList.clear()
+                        posts.clear()
                         var search = newText.toLowerCase(Locale.getDefault())
 
                         //comprueba si lo que se escribe esta en alguno de los emails
-                        for (name in posts) {
+                        for (name in displayList) {
                             if (name.userName!!.toLowerCase(Locale.getDefault()).contains(search)) {
-                                displayList.add(name)
+                                posts.add(name)
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
-                        for (text in posts) {
+                        for (text in displayList) {
                             if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
-                                displayList.add(text)
+                                posts.add(text)
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
@@ -92,8 +95,8 @@ class InicioActivity : AppCompatActivity() {
 
                         //en caso de que sea nulo no muestra ningun post
                     } else {
-                        displayList.clear()
-                        displayList.addAll(posts)
+                        posts.clear()
+                        posts.addAll(displayList)
                         rv.adapter!!.notifyDataSetChanged()
                     }
                     return true
