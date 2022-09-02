@@ -19,28 +19,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:text="Email"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/EmailTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:text="."
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,28 +95,6 @@
 
         <TextView
             android:id="@+id/cuitTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:text="."
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
-            android:text="Email de contacto"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/contactTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"

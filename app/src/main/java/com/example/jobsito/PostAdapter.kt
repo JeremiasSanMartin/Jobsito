@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
@@ -22,12 +23,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 //adaptador para usar el post en el recycle view, esta es la clase donde viene la informacion de los post
-class PostAdapter(private val activity: Activity, private val dataset: List<Post>) :
+class PostAdapter(private val activity: Activity, private val dataset: List<Post>, private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     private var Email = auth.currentUser!!.email
     class ViewHolder(val layout: View) : RecyclerView.ViewHolder(layout)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.card_post, parent, false)
@@ -42,11 +44,12 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = dataset[position]
         val likes = post.likes!!.toMutableList()
-        var liked = likes.contains(auth.uid)
+        var liked = likes.contains(auth.currentUser!!.email!!)
+
 
         //añade los datos al post
 
-        holder.layout.likesCount.text = "${likes.size} Likes"
+        holder.layout.likesCount.text = "${likes.size} Postulados"
         holder.layout.userCard.text = post.userName
         holder.layout.postCard.text = post.post
 
@@ -63,8 +66,12 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
             setColor(liked, holder.layout.likeBtn)
 
             //si le doy like se añade mi id en caso contrario se quita mi id
-            if (liked) likes.add(auth.uid!!)
-            else likes.remove(auth.uid)
+            if (liked) {
+                likes.add(auth.currentUser!!.email!!)
+            }
+            else {
+                likes.remove(auth.currentUser!!.email!! )
+            }
 
             val doc = db.collection("posts").document(post.uid!!)
 
@@ -103,15 +110,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
                 holder.layout.likeBtn.visibility = View.INVISIBLE
             }else{
                 holder.layout.setOnClickListener {
-
-                    //showProfile(Email)
-
-                    /*val profileIntent = Intent(this.activity, profileViewActivity::class.java).apply {
-                         putExtra("email", Email)
-                     }
-                     startActivity(profileIntent)*/
-
-
+                    onItemClickListener.onItemClicked(position)
                 }
             }
         }
@@ -126,12 +125,6 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         }
     }
 
-/*private fun showProfile(){
-   val profileIntent = Intent(this, profileViewActivity::class.java).apply {
-       putExtra("email", email)
-   }
-   startActivity(profileIntent)
-}*/
 
 //da el color si se dio like
 private fun setColor(liked: Boolean, likeButton: Button) {

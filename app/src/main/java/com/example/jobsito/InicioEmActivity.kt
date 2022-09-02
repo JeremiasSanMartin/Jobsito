@@ -5,17 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_inicio.perfilButton2
 import kotlinx.android.synthetic.main.activity_inicio_em.*
-import kotlinx.android.synthetic.main.card_post.*
 import java.util.*
 
-class InicioEmActivity : AppCompatActivity() {
+class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
     private var displayList = mutableListOf<Post>()
     private var filterList = mutableListOf<Post>()
     private var posts = mutableListOf<Post>()
@@ -38,7 +36,7 @@ class InicioEmActivity : AppCompatActivity() {
 
             //limpia la lista para que se resete al borrar
             displayList.clear()
-
+            rvEm.adapter  = PostAdapter(this@InicioEmActivity,  posts, this)
             //guarda en una lista alternativa las publicaciones de la empresa
             for (emailEm in posts) {
 
@@ -55,7 +53,7 @@ class InicioEmActivity : AppCompatActivity() {
             rvEm.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@InicioEmActivity)
-                adapter = PostAdapter(this@InicioEmActivity, displayList)
+
             }
 
         }
@@ -125,5 +123,9 @@ class InicioEmActivity : AppCompatActivity() {
         }
 
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onItemClicked(position: Int) {
+        TODO("Not yet implemented")
     }
 }

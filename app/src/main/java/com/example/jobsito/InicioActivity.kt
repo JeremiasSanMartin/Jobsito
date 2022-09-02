@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio.*
+import kotlinx.android.synthetic.main.card_post.*
 import java.util.*
 
-class InicioActivity : AppCompatActivity() {
+class InicioActivity : AppCompatActivity(),OnItemClickListener {
     private var displayList = mutableListOf<Post>()
     private var posts = mutableListOf<Post>()
     private val db = FirebaseFirestore.getInstance()
@@ -33,11 +35,10 @@ class InicioActivity : AppCompatActivity() {
             displayList.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
             }
-
+            rv.adapter  = PostAdapter(this@InicioActivity,  posts, this)
             rv.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@InicioActivity)
-                adapter = PostAdapter(this@InicioActivity,  posts)
             }
 
 
@@ -106,5 +107,11 @@ class InicioActivity : AppCompatActivity() {
         }
 
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onItemClicked(position: Int) {
+        val intentPublic = Intent(this,profileViewActivity::class.java)
+        intentPublic.putExtra("email", posts[position].userName)
+        startActivity(intentPublic)
     }
 }
