@@ -36,7 +36,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
 
             //limpia la lista para que se resete al borrar
             displayList.clear()
-            rvEm.adapter  = PostAdapter(this@InicioEmActivity,  posts, this)
+            rvEm.adapter  = PostAdapter(this@InicioEmActivity,  displayList, this)
             //guarda en una lista alternativa las publicaciones de la empresa
             for (emailEm in posts) {
 
