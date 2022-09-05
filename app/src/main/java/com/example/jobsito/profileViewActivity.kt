@@ -22,7 +22,7 @@ class profileViewActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             //comprueba si sos una empresa para mostrar el boton de borrar
             val intent = Intent(this, InicioActivity::class.java)
-            intent.putExtra("email", email)
+            intent.putExtra("email", auth.currentUser?.email)
             startActivity(intent)
         }
     }
