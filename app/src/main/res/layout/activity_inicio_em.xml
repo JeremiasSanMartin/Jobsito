@@ -29,6 +29,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

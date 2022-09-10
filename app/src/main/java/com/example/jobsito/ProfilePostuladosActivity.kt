@@ -5,36 +5,35 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_profile_postulados.*
 import kotlinx.android.synthetic.main.activity_profile_view.*
 
-class profileViewActivity : AppCompatActivity() {
+class ProfilePostuladosActivity : AppCompatActivity() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_view)
-        //toma el email de de la actividad anterior para mostrar el perfil
+        setContentView(R.layout.activity_profile_postulados)
+
         val bundle = intent.extras
+        val postulados = bundle?.getString("postulados")
         val email = bundle?.getString("email")
-        Actualizar(email?: "")
-        //boton para volver a la pagina de inicio
-        backButton.setOnClickListener {
+
+        Actualizar(email!!)
+        atrasButton.setOnClickListener {
             //comprueba si sos una empresa para mostrar el boton de borrar
-            val intent = Intent(this, InicioActivity::class.java)
-            intent.putExtra("email", auth.currentUser?.email)
-            startActivity(intent)
+            onBackPressed()
         }
     }
     //funcion para actualizar los datos del usuario tomados de la BD
     private fun Actualizar(email: String) {
         db.collection("users").document(email).get().addOnSuccessListener {
-            nameEmTv.setText(it.get("nombreEmpresa") as String?)
-            phoneTv.setText(it.get("phone") as String?)
-            direTv.setText(it.get("direccion") as String?)
-            cuitTv.setText(it.get("cuit") as String?)
-            jobTv.setText(it.get("rubroTrabajo") as String?)
+            nombreTxt.setText(it.get("nombrecompleto") as String?)
+            telefonoTxt.setText(it.get("phone") as String?)
+            dniTxt.setText(it.get("dni") as String?)
+            localidadTxt.setText(it.get("localidad") as String?)
+            tituloTxt.setText(it.get("titulo") as String?)
+            emailTxt.setText(email)
         }
     }
 }
-
-

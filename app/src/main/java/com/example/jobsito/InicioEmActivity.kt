@@ -125,7 +125,13 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onItemClicked(position: Int) {
+    override fun onItemClicked(uid: String) {
+        val intentPublic = Intent(this,PostuladosActivity::class.java)
+        intentPublic.putExtra("postulados", uid)
+        startActivity(intentPublic)
+    }
+
+    override fun onItemClickedProfile(position: Int) {
         TODO("Not yet implemented")
     }
 }

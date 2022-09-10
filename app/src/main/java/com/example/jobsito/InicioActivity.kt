@@ -109,7 +109,12 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onItemClicked(position: Int) {
+    override fun onItemClicked(uid : String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onItemClickedProfile(position: Int) {
+
         val intentPublic = Intent(this,profileViewActivity::class.java)
         intentPublic.putExtra("email", posts[position].userName)
         startActivity(intentPublic)

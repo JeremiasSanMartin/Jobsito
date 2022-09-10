@@ -104,15 +104,22 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
 
 
             if (tipo.equals("empresa")) {
-                println(tipo)
                 holder.layout.delBtn.visibility = View.VISIBLE
                 holder.layout.shareBtn.visibility = View.INVISIBLE
                 holder.layout.likeBtn.visibility = View.INVISIBLE
-            }else{
+
+                //si es una empresa envia el uid para los postulados
                 holder.layout.setOnClickListener {
-                    onItemClickListener.onItemClicked(position)
+                    onItemClickListener.onItemClicked(uid = post.uid!!)
                 }
+            }else{
+                //y si es una persona simplemente envia la posicion para ver el perfil
+                holder.layout.setOnClickListener {
+                    onItemClickListener.onItemClickedProfile(position)
+                }
+
             }
+
         }
 
         //hace la accion de eliminar el post de la base de datos al tocarse el boton
