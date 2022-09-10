@@ -27,7 +27,7 @@
             android:layout_width="236dp"
             android:layout_height="30dp"
             android:textColor="#ffff"
-            android:textSize="20sp"
+            android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="@+id/itemImage"
             app:layout_constraintStart_toEndOf="@+id/itemImage"
             app:layout_constraintTop_toTopOf="parent" />

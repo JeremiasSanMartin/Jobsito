@@ -32,6 +32,7 @@ class PostuladosActivity : AppCompatActivity(), OnItemClickListener {
          db.collection("posts").document(postulados!!).addSnapshotListener { value, error ->
              //obtencion de los likes de la base de datos y los convierte en una mutable list
              postuladosList = value!!.get("likes") as MutableList<String>
+             println(postuladosList)
 
              //lo añade a una lista general
              mostrarList.addAll(postuladosList)
