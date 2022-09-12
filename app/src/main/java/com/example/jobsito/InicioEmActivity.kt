@@ -81,6 +81,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
 
     //funcion de busqueda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        //pone el menu personalizado
         menuInflater.inflate(R.menu.main_menu, menu)
 
         //variable del search view
@@ -132,6 +133,6 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
     }
 
     override fun onItemClickedProfile(position: Int) {
-        TODO("Not yet implemented")
+
     }
 }

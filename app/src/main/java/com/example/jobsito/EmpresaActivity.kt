@@ -12,7 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_empresa.*
 import kotlinx.android.synthetic.main.activity_empresa.inicioButton
 import kotlinx.android.synthetic.main.activity_empresa.modificarButton
-import kotlinx.android.synthetic.main.activity_empresa.publicarButton
 import kotlinx.android.synthetic.main.activity_home.emailTextView
 import kotlinx.android.synthetic.main.activity_home.logOutButton
 import kotlinx.android.synthetic.main.activity_home.fullNameShowTextView
@@ -29,13 +28,7 @@ class EmpresaActivity : AppCompatActivity() {
         val email = bundle?.getString("email")
         setup(email ?: "")
 
-        val myHandler = Handler(Looper.getMainLooper())
-        myHandler.post(object : Runnable {
-            override fun run() {
-                Actualizar(email ?: "")
-                myHandler.postDelayed(this, 100 /*0,5 segundos*/)
-            }
-        })
+        Actualizar(email ?: "")
 
         //guarda los datos del inicio de sesion del usuario hasta que este mismo decida cerrar la sesion
         val prefs =
@@ -61,15 +54,6 @@ class EmpresaActivity : AppCompatActivity() {
             }
 
             startActivity(inicioIntent)
-        }
-        //boton para ir a la pestaña de crear publicaciones
-        publicarButton.setOnClickListener {
-            val publicIntent = Intent(this, publicEmActivity::class.java).apply {
-
-                //envia el email
-                putExtra("email", email)
-            }
-            startActivity(publicIntent)
         }
     }
 
