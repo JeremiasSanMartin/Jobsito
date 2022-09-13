@@ -22,18 +22,18 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="Nombre de la empresa"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/nameEmTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:text="."
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryGray"
             android:textSize="20dp" />
 
         <Space
@@ -44,18 +44,18 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="Teléfono"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/phoneTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:text="."
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryGray"
             android:textSize="20dp" />
 
         <Space
@@ -66,18 +66,18 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="Direccion"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/direTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:text="."
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryGray"
             android:textSize="20dp" />
 
         <Space
@@ -88,18 +88,18 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="CUIT"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/cuitTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:text="."
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryGray"
             android:textSize="20dp" />
 
         <Space
@@ -110,18 +110,18 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="Rubro de trabajo"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/jobTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:text="."
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimaryGray"
             android:textSize="20dp" />
 
         <Space
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:background="@drawable/boton_redondo"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/archivo_black"
 
             android:text="Volver"
             android:textColor="#FFFFFF"

@@ -26,6 +26,7 @@
             android:id="@+id/postuladosMail"
             android:layout_width="236dp"
             android:layout_height="30dp"
+            android:fontFamily="@font/abeezee"
             android:textColor="#ffff"
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="@+id/itemImage"

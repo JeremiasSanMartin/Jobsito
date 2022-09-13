@@ -175,14 +175,14 @@ class MainActivity : AppCompatActivity() {
                                 showHome(account.email ?: "")
                             } else {
                                 showAlert()
-                                Toast.makeText(this, "Error en firebase", Toast.LENGTH_SHORT).show()
+                               // Toast.makeText(this, "Error en firebase", Toast.LENGTH_SHORT).show()
                             }
                         }
 
                 }
             } catch (e: ApiException) {
                 showAlert()
-                Toast.makeText(this, "Error en catch", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Error en catch", Toast.LENGTH_SHORT).show()
             }
         }
     }

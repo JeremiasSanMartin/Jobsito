@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
-                android:fontFamily="@font/baloo"
+                android:fontFamily="@font/archivo_black"
                 android:text="Inicio"
                 android:textColor="@color/white"
                 android:textSize="17dp" />
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
-                android:fontFamily="@font/baloo"
+                android:fontFamily="@font/archivo_black"
                 android:text="Perfil"
                 android:textColor="@color/white"
                 android:textSize="17dp" /><![CDATA[

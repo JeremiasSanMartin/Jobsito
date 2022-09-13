@@ -23,7 +23,7 @@
             android:id="@+id/emailTextView2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:text="Email"
             android:textColor="@color/black"
             android:textSize="17dp" />
@@ -32,7 +32,7 @@
             android:id="@+id/fullNameTextView"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:hint="Nombre y Apellido"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:hint="Telefono"
             android:inputType="phone"
             android:minHeight="48dp"
@@ -63,7 +63,7 @@
             android:id="@+id/locationTextView"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:hint="Localidad"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:hint="DNI"
             android:inputType="phone"
             android:minHeight="48dp"
@@ -94,7 +94,7 @@
             android:id="@+id/tituloTextView"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abel"
             android:hint="Titulo/s obtenido/s"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
-                android:fontFamily="@font/baloo"
+                android:fontFamily="@font/archivo_black"
 
                 android:text="Guardar"
                 android:textColor="@color/white"

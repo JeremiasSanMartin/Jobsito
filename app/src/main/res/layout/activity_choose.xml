@@ -19,18 +19,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:gravity="center"
-            android:text="¿Como te queres registrar?"
-            android:textSize="40sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:text="¿Cómo te quieres registrar?"
+            android:textSize="35sp" />
 
     </LinearLayout>
 
@@ -47,10 +47,11 @@
             android:id="@+id/personaRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:minHeight="48dp"
             android:text="Persona"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:button="@drawable/custom_icon"/>
 
         <Space
             android:layout_width="match_parent"
@@ -60,10 +61,11 @@
             android:id="@+id/empresaRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/abeezee"
             android:minHeight="48dp"
             android:text="Empresa"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:button="@drawable/custom_icon"/>
 
     </RadioGroup>
 
@@ -84,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/boton_redondo"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/archivo_black"
             android:text="Continuar"
             android:textColor="@color/white"
             android:textSize="20dp" />
