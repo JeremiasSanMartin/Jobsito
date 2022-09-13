@@ -39,9 +39,6 @@
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,23 +58,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton_redondo"
+                android:background="@drawable/navegation_boton"
+                android:drawableTop="@drawable/ic_home"
                 android:fontFamily="@font/archivo_black"
                 android:text="Inicio"
                 android:textColor="@color/white"
                 android:textSize="17dp" />
-
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0" />
 
             <Button
                 android:id="@+id/perfilButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/boton_redondo"
+                android:background="@drawable/navegation_boton"
+                android:drawableTop="@drawable/ic_person"
                 android:fontFamily="@font/archivo_black"
                 android:text="Perfil"
                 android:textColor="@color/white"

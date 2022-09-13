@@ -6,23 +6,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_empresa.*
 import kotlinx.android.synthetic.main.activity_empresa.inicioButton
-import kotlinx.android.synthetic.main.activity_empresa.modificarButton
 import kotlinx.android.synthetic.main.activity_home.emailTextView
-import kotlinx.android.synthetic.main.activity_home.logOutButton
 import kotlinx.android.synthetic.main.activity_home.fullNameShowTextView
 import kotlinx.android.synthetic.main.activity_home.phoneShowTextView
 import kotlinx.android.synthetic.main.activity_inicio_em.*
 
 class EmpresaActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private lateinit var builder: AlertDialog.Builder
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_empresa)
+        //inicia el alerdialog para usarlo despues
+        builder = AlertDialog.Builder(this)
         //setup
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -36,14 +41,6 @@ class EmpresaActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.apply()
 
-        //boton que envia a la pantalla de modificar el perfil
-        modificarButton.setOnClickListener {
-            val intent = Intent(this, ModificarEmActivity::class.java).apply {
-
-                putExtra("email", email)
-            }
-            startActivity(intent)
-        }
 
         //boton de movimiento entre pantallas
         inicioButton.setOnClickListener {
@@ -57,6 +54,52 @@ class EmpresaActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+
+        inflater.inflate(R.menu.modificar_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item!!.itemId){
+            R.id.modificar ->{
+                val intent = Intent(this, ModificarEmActivity::class.java).apply {
+
+                    putExtra("email", auth.currentUser!!.email)
+                }
+                startActivity(intent)
+                true
+            }
+            R.id.salir ->{
+                builder.setTitle("Atencion!")
+                    .setMessage("Seguro que quieres cerrar sesion?")
+                    .setCancelable(true)
+                    //cuando se haga click otra vez en salir
+                    .setPositiveButton("yes"){dialogInterface,it->
+                        //borrar datos los datos anteriores al cerrar sesion
+                        val prefs =
+                            getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+                        prefs.clear()
+                        prefs.apply()
+                        FirebaseAuth.getInstance().signOut()
+                        val Intent = Intent(this, MainActivity::class.java).apply {
+
+                        }
+                        startActivity(Intent)
+                        true
+                    }
+                    .setNegativeButton("No"){dialogInterface,it->
+                        //cancela el alertdialog
+                        dialogInterface.cancel()
+                    }
+                    .show()
+
+                true
+            }else -> true
+
+        }
+    }
 
     //funcion para actualizar los datos del usuario tomados de la BD
     private fun Actualizar(email: String) {
@@ -94,20 +137,6 @@ class EmpresaActivity : AppCompatActivity() {
 
 
 
-        logOutButton.setOnClickListener {
-
-            //borrar datos los datos anteriores al cerrar sesion
-            val prefs =
-                getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-            prefs.clear()
-            prefs.apply()
-            FirebaseAuth.getInstance().signOut()
-            val Intent = Intent(this, MainActivity::class.java).apply {
-
-            }
-            startActivity(Intent)
-
-        }
 
 
     }
