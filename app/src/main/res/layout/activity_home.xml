@@ -8,6 +8,7 @@
     tools:context=".HomeActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout10"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -217,6 +218,7 @@
             android:layout_height="16dp" />
 
         <LinearLayout
+            android:id="@+id/linearLayout11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -227,6 +229,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
+                android:drawableTop="@drawable/icono_inicio"
                 android:fontFamily="@font/archivo_black"
                 android:text="Inicio"
                 android:textColor="@color/white"
@@ -243,6 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
+                android:drawableTop="@drawable/icono_perfil"
                 android:fontFamily="@font/archivo_black"
                 android:text="Perfil"
                 android:textColor="@color/white"

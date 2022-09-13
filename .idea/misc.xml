@@ -6,11 +6,12 @@
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/drawable/custom_icon.xml" value="0.2105" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/drawable/ic_checked_24.xml" value="0.1" />
+        <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/drawable/icono_perfil.xml" value="0.104" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/font/.xml" value="0.1" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_auth.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_choose.xml" value="0.1" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_empresa.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_home.xml" value="0.20108695652173914" />
+        <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_inicio.xml" value="0.25" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_inicio_em.xml" value="0.22" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/activity_modificar.xml" value="0.20416666666666666" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/card_post.xml" value="0.18" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/layout/postulados_card.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DIego/Desktop/JobSito/Jobsito/app/src/main/res/menu/navegation_menu.xml" value="0.1" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.35" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/boton_redondo.xml" value="0.35" />
