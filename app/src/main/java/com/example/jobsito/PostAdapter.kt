@@ -52,6 +52,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         holder.layout.likesCount.text = "${likes.size} Postulados"
         holder.layout.userCard.text = post.userName
         holder.layout.postCard.text = post.post
+        holder.layout.titleCard.text = post.title
 
         val sdf = SimpleDateFormat("dd/M/yyyy")
 

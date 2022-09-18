@@ -26,15 +26,15 @@ class publicEmActivity : AppCompatActivity() {
 
 
         publicButton.setOnClickListener {
-            if (postTextView.text.toString() == "") {
+            if (postTextView.text.toString() == "" || postTitleTextView.text.toString() == "" ) {
                 Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
             } else {
-
+                val titleString = postTitleTextView.text.toString()
                 val postString = postTextView.text.toString()
                 val date = Date()
                 val userName = email
 
-                val post = Post(postString, date, userName)
+                val post = Post(titleString,postString, date, userName)
                 db.collection("posts").add(post)
                     .addOnSuccessListener {
                         finish()

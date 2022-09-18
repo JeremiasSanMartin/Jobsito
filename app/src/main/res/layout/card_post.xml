@@ -28,7 +28,7 @@
 
 
         <TextView
-            android:id="@+id/emCard"
+            android:id="@+id/titleCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -49,7 +49,7 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/abel"
             android:text="Nombre del posteador"
-            android:textSize="15sp"
+            android:textSize="1sp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -68,7 +68,7 @@
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emCard" />
+            app:layout_constraintTop_toBottomOf="@+id/titleCard" />
 
         <TextView
             android:id="@+id/dateCard"

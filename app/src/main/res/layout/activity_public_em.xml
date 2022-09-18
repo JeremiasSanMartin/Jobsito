@@ -32,7 +32,8 @@
                 android:fontFamily="@font/archivo_black"
                 android:text="Cancelar"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
+
 
             <Space
                 android:layout_width="8dp"
@@ -48,7 +49,7 @@
                 android:fontFamily="@font/archivo_black"
                 android:text="Publicar"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -70,14 +71,30 @@
             android:layout_height="8dp" />
 
         <EditText
+            android:id="@+id/postTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/abel"
+            android:gravity="start|top"
+            android:hint="Titulo de tu publicacion"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <EditText
             android:id="@+id/postTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:gravity="start|top"
-            android:hint="Descripcion de tu empresa"
-            android:inputType="textMultiLine" />
+            android:hint="Breve descipcion"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp" />
 
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import kotlin.collections.ArrayList
 
 //crea la clase que guarda los datos de los post
 class Post(
+    val title: String? = null,
     val post: String? = null,
     val date: Date? = null,
     val userName: String? = null,

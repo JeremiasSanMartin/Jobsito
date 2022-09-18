@@ -72,11 +72,11 @@ class EmpresaActivity : AppCompatActivity() {
                 true
             }
             R.id.salir ->{
-                builder.setTitle("Atencion!")
-                    .setMessage("Seguro que quieres cerrar sesion?")
+                builder.setTitle("Atención!")
+                    .setMessage("Seguro que quieres cerrar sesión?")
                     .setCancelable(true)
                     //cuando se haga click otra vez en salir
-                    .setPositiveButton("yes"){dialogInterface,it->
+                    .setPositiveButton("Si"){dialogInterface,it->
                         //borrar datos los datos anteriores al cerrar sesion
                         val prefs =
                             getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()

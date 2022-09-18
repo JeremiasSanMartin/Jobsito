@@ -126,23 +126,49 @@ class MainActivity : AppCompatActivity() {
     //funcion para mostrar la pagina de inicio dependiendo si el usuario es una empresa, una persona, o es nueva en la app
     private fun showHome(email: String) {
         var tipo: String? = ""
+        var datoPersona: String? = ""
+        var datoEmpresa: String? = ""
 
-
+        //comprueba el tipo de usuario o si no tienen ningun tipo
         db.collection("users").document(email).collection("prueba").document("prueba").get()
             .addOnSuccessListener { documento ->
                 tipo = documento.data?.get("tipo").toString()
 
+                //comprueba si la Persona ya ingreso todos los datos de su perfil
+                db.collection("users").document(email).get()
+                    .addOnSuccessListener { documento ->
+                        datoPersona = documento.data?.get("dni").toString()
+
+                        //comprueba si la Empresa ya ingreso todos los datos de su perfil
+                        db.collection("users").document(email).get()
+                            .addOnSuccessListener { documento ->
+                                datoEmpresa = documento.data?.get("cuit").toString()
                 if (tipo == "trabajo") {
 
-                    val inicioIntent = Intent(this, HomeActivity::class.java).apply {
-                        putExtra("email", email)
+                    if (datoPersona == ""){
+                        val modificarIntent = Intent(this, ModificarActivity::class.java).apply {
+                            putExtra("email", email)
+                        }
+                        startActivity(modificarIntent)
+                    }else{
+                        val inicioIntent = Intent(this, HomeActivity::class.java).apply {
+                            putExtra("email", email)
                     }
-                    startActivity(inicioIntent)
+                        startActivity(inicioIntent)
+                    }
                 } else if (tipo == "empresa") {
-                    val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
-                        putExtra("email", email)
+                    if (datoEmpresa == ""){
+                        val modificarEmIntent = Intent(this, ModificarEmActivity::class.java).apply {
+                            putExtra("email", email)
+                        }
+                        startActivity(modificarEmIntent)
+                    }else{
+                        val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
+                            putExtra("email", email)
+                        }
+                        startActivity(empresaIntent)
                     }
-                    startActivity(empresaIntent)
+
                 } else {
 
                     val chooseIntent = Intent(this, chooseActivity::class.java).apply {
@@ -152,7 +178,25 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
+}
 
+
+    }
+    //override para que el boton hacia atras salga de la app
+    private var backPressedTime: Long = 0
+    lateinit var backToast: Toast
+    override fun onBackPressed() {
+        backToast =
+            Toast.makeText(this, "Preciona atras otra vez para salir de la app.", Toast.LENGTH_LONG)
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel()
+            finishAffinity()
+            return
+        } else {
+            backToast.show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
     //comprobacion de google una vez ingresada la cuenta
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
