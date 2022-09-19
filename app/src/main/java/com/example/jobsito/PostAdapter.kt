@@ -83,19 +83,6 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
                 null
             }
         }
-
-
-        //funcion para el boton de compartir, este solo comparte un texto plano
-        holder.layout.shareBtn.setOnClickListener {
-            val sendIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, post.post)
-                type = "text/plain"
-            }
-
-            val shareIntent = Intent.createChooser(sendIntent, null)
-            activity.startActivity(shareIntent)
-        }
         //comprueba si sos una empresa para mostrar el boton de borrar
         var tipo: String? = ""
 
@@ -106,7 +93,6 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
 
             if (tipo.equals("empresa")) {
                 holder.layout.delBtn.visibility = View.VISIBLE
-                holder.layout.shareBtn.visibility = View.INVISIBLE
                 holder.layout.likeBtn.visibility = View.INVISIBLE
 
                 //si es una empresa envia el uid para los postulados

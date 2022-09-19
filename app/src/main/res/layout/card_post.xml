@@ -82,7 +82,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/shareBtn"
+            android:id="@+id/likeBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,27 +90,12 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/abeezee"
-            android:text="Compartir"
+            android:text="Postularse"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userCard"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <Button
-            android:id="@+id/likeBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/abeezee"
-            android:text="Postularse"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/shareBtn"
-            app:layout_constraintTop_toBottomOf="@+id/userCard" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/likesCount"
