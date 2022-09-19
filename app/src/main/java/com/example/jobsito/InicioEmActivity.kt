@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_inicio.perfilButton2
@@ -19,6 +21,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
     private var posts = mutableListOf<Post>()
     private val db = FirebaseFirestore.getInstance()
     private var tipo = String()
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_em)
@@ -40,7 +43,12 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
             //guarda en una lista alternativa las publicaciones de la empresa
             for (emailEm in posts) {
 
-                if (emailEm.userName!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
+                if (emailEm.post!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
+
+                    displayList.add(emailEm)
+
+                }
+                if (emailEm.title!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
 
                     displayList.add(emailEm)
 
@@ -78,7 +86,15 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
             startActivity(publicIntent)
         }
     }
+    //reescribe el click hacia atras
+    override fun onBackPressed() {
+        val homeIntent = Intent(this, EmpresaActivity::class.java).apply {
 
+            //envia el email
+            putExtra("email", auth.currentUser?.email)
+        }
+        startActivity(homeIntent)
+    }
     //funcion de busqueda
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         //pone el menu personalizado

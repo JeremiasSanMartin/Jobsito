@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.card_post.*
@@ -16,6 +17,7 @@ import java.util.*
 class InicioActivity : AppCompatActivity(),OnItemClickListener {
     private var displayList = mutableListOf<Post>()
     private var posts = mutableListOf<Post>()
+    private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +83,7 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
 
                         //comprueba si lo que se escribe esta en alguno de los emails
                         for (name in displayList) {
-                            if (name.userName!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                            if (name.title!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 posts.add(name)
                             }
                             rv.adapter!!.notifyDataSetChanged()
@@ -109,6 +111,14 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
         return super.onCreateOptionsMenu(menu)
     }
 
+    override fun onBackPressed() {
+        val homeIntent = Intent(this, HomeActivity::class.java).apply {
+
+            //envia el email
+            putExtra("email", auth.currentUser?.email)
+        }
+        startActivity(homeIntent)
+    }
     override fun onItemClicked(uid : String) {
         TODO("Not yet implemented")
     }
