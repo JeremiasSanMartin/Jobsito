@@ -43,12 +43,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
             //guarda en una lista alternativa las publicaciones de la empresa
             for (emailEm in posts) {
 
-                if (emailEm.post!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
-
-                    displayList.add(emailEm)
-
-                }
-                if (emailEm.title!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
+                if (emailEm.userName!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
 
                     displayList.add(emailEm)
 
@@ -121,6 +116,12 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
                         //comprueba si lo que se escribe esta en alguno de los campos
                         for (text in filterList) {
                             if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                                displayList.add(text)
+                            }
+                            rvEm.adapter!!.notifyDataSetChanged()
+                        }
+                        for (text in filterList) {
+                            if (text.title!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(text)
                             }
                             rvEm.adapter!!.notifyDataSetChanged()
