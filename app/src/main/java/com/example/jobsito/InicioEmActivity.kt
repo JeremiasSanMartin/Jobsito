@@ -115,18 +115,12 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
 
                         //comprueba si lo que se escribe esta en alguno de los campos
                         for (text in filterList) {
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                            if (text.title!!.toLowerCase(Locale.getDefault()).contains(search) || text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(text)
                             }
                             rvEm.adapter!!.notifyDataSetChanged()
                         }
-                        for (text in filterList) {
-                            if (text.title!!.toLowerCase(Locale.getDefault()).contains(search)) {
-                                displayList.add(text)
-                            }
-                            rvEm.adapter!!.notifyDataSetChanged()
-                        }
-                        //otros for para otras busquedas
+                        //para añadir mas busquedas poner un || y otra conparacion para evitar duplicados
 
                         //en caso de que sea nulo no muestra ningun post
                     } else {

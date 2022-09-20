@@ -83,18 +83,11 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
 
                         //comprueba si lo que se escribe esta en alguno de los emails
                         for (name in displayList) {
-                            if (name.title!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                            if (name.title!!.toLowerCase(Locale.getDefault()).contains(search) || name.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 posts.add(name)
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
-                        for (text in displayList) {
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
-                                posts.add(text)
-                            }
-                            rv.adapter!!.notifyDataSetChanged()
-                        }
-                        //otros for para otras busquedas
 
                         //en caso de que sea nulo no muestra ningun post
                     } else {
