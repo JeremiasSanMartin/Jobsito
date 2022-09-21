@@ -24,6 +24,7 @@ class ProfilePostuladosActivity : AppCompatActivity() {
             //comprueba si sos una empresa para mostrar el boton de borrar
             onBackPressed()
         }
+        title = "Perfil de $email"
     }
     //funcion para actualizar los datos del usuario tomados de la BD
     private fun Actualizar(email: String) {

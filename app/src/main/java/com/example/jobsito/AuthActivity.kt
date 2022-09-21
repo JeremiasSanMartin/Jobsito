@@ -151,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         startActivity(modificarIntent)
                     }else{
-                        val inicioIntent = Intent(this, HomeActivity::class.java).apply {
+                        val inicioIntent = Intent(this, InicioActivity::class.java).apply {
                             putExtra("email", email)
                     }
                         startActivity(inicioIntent)
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         startActivity(modificarEmIntent)
                     }else{
-                        val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
+                        val empresaIntent = Intent(this, InicioEmActivity::class.java).apply {
                             putExtra("email", email)
                         }
                         startActivity(empresaIntent)

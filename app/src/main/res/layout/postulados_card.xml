@@ -18,7 +18,7 @@
             android:id="@+id/itemImage"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_postulado"
+            android:src="@drawable/ic_person"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -26,9 +26,10 @@
             android:id="@+id/postuladosMail"
             android:layout_width="236dp"
             android:layout_height="30dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/abeezee"
             android:textColor="#ffff"
-            android:textSize="14sp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="@+id/itemImage"
             app:layout_constraintStart_toEndOf="@+id/itemImage"
             app:layout_constraintTop_toTopOf="parent" />

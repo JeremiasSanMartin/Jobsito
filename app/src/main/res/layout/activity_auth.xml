@@ -39,7 +39,7 @@
             android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:drawableStart="@drawable/common_google_signin_btn_icon_light"
             android:paddingStart="16dp"
-            android:text="Google"
+            android:text="Ingresa con Google"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
 
