@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_inicio.perfilButton2
 import kotlinx.android.synthetic.main.activity_inicio_em.*
@@ -31,7 +32,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
         val bundle = intent.extras
         val email = bundle?.getString("email")
         //toma el post de la base de datos y guarda todos en posts
-        db.collection("posts").addSnapshotListener { value, error ->
+        db.collection("posts").orderBy("date", Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
             posts.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
