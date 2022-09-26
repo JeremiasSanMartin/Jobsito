@@ -74,8 +74,11 @@ class MainActivity : AppCompatActivity() {
         if (email != null) {
             authLayout.visibility = View.INVISIBLE
             imageView2.visibility = View.INVISIBLE
+            Texto.visibility = View.INVISIBLE
             gifCarga.visibility = View.VISIBLE
             textView11.visibility = View.VISIBLE
+            logoanimado3.visibility = View.VISIBLE
+
 
             showHome(email)
         }

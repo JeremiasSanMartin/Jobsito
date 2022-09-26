@@ -6,11 +6,14 @@
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.35" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/boton_redondo.xml" value="0.35" />
+        <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/custom_icon.xml" value="0.2355" />
+        <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2355" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_bg.xml" value="0.269" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_chat.xml" value="0.269" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_elipse.xml" value="0.269" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_gradient_green.xml" value="0.269" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/ic_search.xml" value="0.1705" />
+        <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/navegation_boton.xml" value="0.2355" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/drawable/splash.xml" value="0.2775" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_auth.xml" value="0.25" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_choose.xml" value="0.25" />
@@ -23,7 +26,7 @@
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_modificar.xml" value="0.22560975609756098" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_modificar_em.xml" value="0.358695652173913" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_perfil_persona.xml" value="0.213768115942029" />
-        <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_public_em.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/activity_public_em.xml" value="0.33" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/card_post.xml" value="0.33" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/layout/postulados_card.xml" value="0.35733695652173914" />
         <entry key="..\:/Users/JERESM/Desktop/apps_android_studio/Jobsito/app/src/main/res/menu/main_menu.xml" value="0.27291666666666664" />
