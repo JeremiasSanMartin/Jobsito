@@ -27,6 +27,8 @@ class PostuladosActivity : AppCompatActivity(), OnItemClickListener {
         val bundle = intent.extras
         val postulados = bundle?.getString("postulados")
 
+        title= "Tus postulados"
+
 
         //muestra la lista de postulados
          db.collection("posts").document(postulados!!).addSnapshotListener { value, error ->

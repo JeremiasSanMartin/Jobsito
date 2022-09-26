@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.activity_inicio.perfilButton2
 import kotlinx.android.synthetic.main.activity_inicio_em.*
@@ -31,7 +32,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
         val bundle = intent.extras
         val email = bundle?.getString("email")
         //toma el post de la base de datos y guarda todos en posts
-        db.collection("posts").addSnapshotListener { value, error ->
+        db.collection("posts").orderBy("date", Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
             posts.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
@@ -43,12 +44,7 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
             //guarda en una lista alternativa las publicaciones de la empresa
             for (emailEm in posts) {
 
-                if (emailEm.post!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
-
-                    displayList.add(emailEm)
-
-                }
-                if (emailEm.title!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
+                if (emailEm.userName!!.toLowerCase(Locale.getDefault()).contains(email!!)) {
 
                     displayList.add(emailEm)
 
@@ -120,12 +116,12 @@ class InicioEmActivity : AppCompatActivity(),OnItemClickListener {
 
                         //comprueba si lo que se escribe esta en alguno de los campos
                         for (text in filterList) {
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                            if (text.title!!.toLowerCase(Locale.getDefault()).contains(search) || text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 displayList.add(text)
                             }
                             rvEm.adapter!!.notifyDataSetChanged()
                         }
-                        //otros for para otras busquedas
+                        //para añadir mas busquedas poner un || y otra conparacion para evitar duplicados
 
                         //en caso de que sea nulo no muestra ningun post
                     } else {

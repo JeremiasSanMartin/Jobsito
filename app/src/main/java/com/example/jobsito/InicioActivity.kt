@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_inicio.*
 import kotlinx.android.synthetic.main.card_post.*
 import java.util.*
@@ -27,7 +28,7 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
         val email = bundle?.getString("email")
         title = null
         //toma el post de la base de datos y lo muestra con apply
-        db.collection("posts").addSnapshotListener { value, error ->
+        db.collection("posts").orderBy("date", Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             posts = value!!.toObjects(Post::class.java)
             posts.forEachIndexed { index, post ->
                 post.uid = value.documents[index].id
@@ -83,18 +84,11 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
 
                         //comprueba si lo que se escribe esta en alguno de los emails
                         for (name in displayList) {
-                            if (name.title!!.toLowerCase(Locale.getDefault()).contains(search)) {
+                            if (name.title!!.toLowerCase(Locale.getDefault()).contains(search) || name.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
                                 posts.add(name)
                             }
                             rv.adapter!!.notifyDataSetChanged()
                         }
-                        for (text in displayList) {
-                            if (text.post!!.toLowerCase(Locale.getDefault()).contains(search)) {
-                                posts.add(text)
-                            }
-                            rv.adapter!!.notifyDataSetChanged()
-                        }
-                        //otros for para otras busquedas
 
                         //en caso de que sea nulo no muestra ningun post
                     } else {

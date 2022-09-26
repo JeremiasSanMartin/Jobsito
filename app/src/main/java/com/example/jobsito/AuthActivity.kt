@@ -74,8 +74,11 @@ class MainActivity : AppCompatActivity() {
         if (email != null) {
             authLayout.visibility = View.INVISIBLE
             imageView2.visibility = View.INVISIBLE
+            Texto.visibility = View.INVISIBLE
             gifCarga.visibility = View.VISIBLE
             textView11.visibility = View.VISIBLE
+            logoanimado3.visibility = View.VISIBLE
+
 
             showHome(email)
         }
@@ -151,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         startActivity(modificarIntent)
                     }else{
-                        val inicioIntent = Intent(this, HomeActivity::class.java).apply {
+                        val inicioIntent = Intent(this, InicioActivity::class.java).apply {
                             putExtra("email", email)
                     }
                         startActivity(inicioIntent)
@@ -163,7 +166,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         startActivity(modificarEmIntent)
                     }else{
-                        val empresaIntent = Intent(this, EmpresaActivity::class.java).apply {
+                        val empresaIntent = Intent(this, InicioEmActivity::class.java).apply {
                             putExtra("email", email)
                         }
                         startActivity(empresaIntent)

@@ -12,7 +12,7 @@
         android:layout_width="306dp"
         android:layout_height="198dp"
         android:src="@drawable/logoanimado"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -39,7 +39,7 @@
             android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:drawableStart="@drawable/common_google_signin_btn_icon_light"
             android:paddingStart="16dp"
-            android:text="Google"
+            android:text="Ingresa con Google"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -88,5 +88,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifCarga"
         app:layout_constraintVertical_bias="0.214" />
+
+    <ImageView
+        android:id="@+id/Texto"
+        android:layout_width="308dp"
+        android:layout_height="199dp"
+        app:layout_constraintBottom_toTopOf="@+id/authLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
+        app:srcCompat="@drawable/logo_no_animado" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
