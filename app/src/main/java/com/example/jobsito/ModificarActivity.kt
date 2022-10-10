@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_modificar.*
 class ModificarActivity : AppCompatActivity() {
     //instancia conectada a la base de datos
     private val db = FirebaseFirestore.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modificar)
@@ -35,14 +34,7 @@ class ModificarActivity : AppCompatActivity() {
         //acceder a los botones guardar, recuperar y eliminar
         saveButton.setOnClickListener {
             //comprueba que ningun campo este vacio
-            if (locationTextView.text.toString() == "" || fullNameTextView.text.toString() == ""
-                || phoneTextView.text.toString() == "" || dniTextView.text.toString() == ""
-                || tituloTextView.text.toString() == ""
-            ) {
-
-                Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
-
-            } else {
+            if (validateEmpty()||validateLenght()) {
 
                 //crea un documento por email
                 db.collection("users").document(email).set(
@@ -63,13 +55,59 @@ class ModificarActivity : AppCompatActivity() {
                     startActivity(homeIntent)
 
                 }
+
             }
         }
 
 
     }
-
-
+    private fun validateLenght(): Boolean{
+        var isValid = false
+        if (locationTextView.text.toString().length < 10||locationTextView.text.toString().length > 50)
+        {
+            locationTextView.error = "Localidad no valida"
+        }
+        else if (fullNameTextView.text.toString().length < 30||fullNameTextView.text.toString().length > 100){
+            fullNameTextView.error = "Nombre no valido"
+        }
+        else if (dniTextView.text.toString().length < 8||dniTextView.text.toString().length > 9){
+            dniTextView.error = "DNI no valido"
+        }
+        else if (phoneTextView.text.toString().length < 9||phoneTextView.text.toString().length > 14){
+            phoneTextView.error = "Telefono no valido"
+        }
+        else if (tituloTextView.text.toString().length > 300){
+            tituloTextView.error = "Titulo/s demaciado largo"
+        }
+        else
+        {
+            isValid = true
+        }
+        return isValid
+    }
+    private fun validateEmpty(): Boolean{
+        var isValid = false
+        if (locationTextView.text.toString().isBlank())
+        {
+            locationTextView.error = "Campo vacio"
+        }
+        else if (fullNameTextView.text.toString().isBlank()){
+            fullNameTextView.error = "Campo vacio"
+        }
+        else if (phoneTextView.text.toString().isBlank()){
+            phoneTextView.error = "Campo vacio"
+        }
+        else if (dniTextView.text.toString().isBlank() ){
+            dniTextView.error = "Campo vacio"
+        }
+        else if (tituloTextView.text.toString().isBlank()){
+            tituloTextView.setText("Ninguno")
+        }
+        else{
+            isValid = true
+        }
+        return isValid
+    }
     private fun obtenerDatos(email: String) {
         emailTextView2.text = email
         //obtiene el documento por email

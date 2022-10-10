@@ -109,7 +109,6 @@ class EmpresaActivity : AppCompatActivity() {
             fullNameShowTextView.setText(it.get("nombreEmpresa") as String?)
             phoneShowTextView.setText(it.get("phone") as String?)
             cuitTextView.setText(it.get("cuit") as String?)
-            contactEmailTextView.setText(it.get("emailcontacto") as String?)
             rubroShowTextView.setText(it.get("rubroTrabajo") as String?)
         }
     }

@@ -132,28 +132,6 @@
             android:layout_height="8dp" />
 
         <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/abeezee"
-            android:text="Email de contacto"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/contactEmailTextView"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:fontFamily="@font/abel"
-            android:text="."
-            android:textColor="@color/colorPrimaryGray"
-            android:textSize="17dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

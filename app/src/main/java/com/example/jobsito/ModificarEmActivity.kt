@@ -30,15 +30,8 @@ class ModificarEmActivity : AppCompatActivity() {
         //acceder a los botones guardar, recuperar y eliminar
         saveButton.setOnClickListener {
             //comprueba que ningun campo este vacio
-            if (direccionTextViewEm.text.toString() == "" || nameTextViewEm.text.toString() == ""
-                || phoneTextViewEm.text.toString() == "" || cuitTextViewEm.text.toString() == ""
-                || emailContactoTextViewEm.text.toString() == "" || rubroTextViewEm.text.toString() == ""
-            ) {
+            if (validateEmpty()|| validateLenght()) {
 
-                //mensaje en caso de que este vacio
-                Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
-
-            } else {
                 //crea un documento por email
                 db.collection("users").document(email).set(
                     hashMapOf(
@@ -46,7 +39,6 @@ class ModificarEmActivity : AppCompatActivity() {
                         "nombreEmpresa" to nameTextViewEm.text.toString(),
                         "phone" to phoneTextViewEm.text.toString(),
                         "cuit" to cuitTextViewEm.text.toString(),
-                        "emailcontacto" to emailContactoTextViewEm.text.toString(),
                         "rubroTrabajo" to rubroTextViewEm.text.toString()
                     )
                 ).addOnSuccessListener {
@@ -63,7 +55,53 @@ class ModificarEmActivity : AppCompatActivity() {
 
 
     }
-
+    private fun validateLenght(): Boolean{
+        var isValid = false
+        if (direccionTextViewEm.text.toString().length < 20||direccionTextViewEm.text.toString().length > 50)
+        {
+            direccionTextViewEm.error = "Direccion no valida"
+        }
+        else if (nameTextViewEm.text.toString().length < 30||nameTextViewEm.text.toString().length > 100){
+            nameTextViewEm.error = "Nombre no valido"
+        }
+        else if (cuitTextViewEm.text.toString().length != 11){
+            cuitTextViewEm.error = "CUIT no valido"
+        }
+        else if (phoneTextViewEm.text.toString().length < 9||phoneTextViewEm.text.toString().length > 14){
+            phoneTextViewEm.error = "Telefono no valido"
+        }
+        else if (rubroTextViewEm.text.toString().length > 100){
+            rubroTextViewEm.error = "Rubro demasiado largo"
+        }
+        else
+        {
+            isValid = true
+        }
+        return isValid
+    }
+    private fun validateEmpty(): Boolean{
+        var isValid = false
+        if (direccionTextViewEm.text.toString().isBlank())
+        {
+            direccionTextViewEm.error = "Campo vacio"
+        }
+        else if (nameTextViewEm.text.toString().isBlank()){
+            nameTextViewEm.error = "Campo vacio"
+        }
+        else if (cuitTextViewEm.text.toString().isBlank()){
+            cuitTextViewEm.error = "Campo vacio"
+        }
+        else if (phoneTextViewEm.text.toString().isBlank() ){
+            phoneTextViewEm.error = "Campo vacio"
+        }
+        else if (rubroTextViewEm.text.toString().isBlank()){
+            rubroTextViewEm.setText("Ninguno")
+        }
+        else{
+            isValid = true
+        }
+        return isValid
+    }
     private fun obtenerDatos(email: String) {
         //obtiene el documento por email
         db.collection("users").document(email).get().addOnSuccessListener {
@@ -71,7 +109,6 @@ class ModificarEmActivity : AppCompatActivity() {
             nameTextViewEm.setText(it.get("nombreEmpresa") as String?)
             phoneTextViewEm.setText(it.get("phone") as String?)
             cuitTextViewEm.setText(it.get("cuit") as String?)
-            emailContactoTextViewEm.setText(it.get("emailcontacto") as String?)
             rubroTextViewEm.setText(it.get("rubroTrabajo") as String?)
 
 

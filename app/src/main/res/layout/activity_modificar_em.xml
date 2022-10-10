@@ -129,23 +129,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/abel"
-            android:hint="CUIT"
+            android:hint="CUIT (sin guiones)"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
-
-        <EditText
-            android:id="@+id/emailContactoTextViewEm"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:fontFamily="@font/abel"
-            android:hint="Email de contacto"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
