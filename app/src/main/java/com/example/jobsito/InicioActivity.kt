@@ -114,6 +114,7 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
         startActivity(homeIntent)
     }
     override fun onItemClicked(uid : String) {
+        TODO("Not yet implemented")
     }
 
     override fun onItemClickedProfile(position: Int) {
