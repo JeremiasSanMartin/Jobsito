@@ -67,17 +67,14 @@ class ModificarActivity : AppCompatActivity() {
         {
             locationTextView.error = "Localidad no valida"
         }
-        else if (fullNameTextView.text.toString().length < 30||fullNameTextView.text.toString().length > 100){
+        else if (fullNameTextView.text.toString().length < 30){
             fullNameTextView.error = "Nombre no valido"
         }
-        else if (dniTextView.text.toString().length < 8||dniTextView.text.toString().length > 9){
+        else if (dniTextView.text.toString().length < 8){
             dniTextView.error = "DNI no valido"
         }
-        else if (phoneTextView.text.toString().length < 9||phoneTextView.text.toString().length > 14){
+        else if (phoneTextView.text.toString().length < 9){
             phoneTextView.error = "Telefono no valido"
-        }
-        else if (tituloTextView.text.toString().length > 300){
-            tituloTextView.error = "Titulo/s demaciado largo"
         }
         else
         {

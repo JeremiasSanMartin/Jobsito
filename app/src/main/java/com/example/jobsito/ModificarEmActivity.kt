@@ -57,21 +57,18 @@ class ModificarEmActivity : AppCompatActivity() {
     }
     private fun validateLenght(): Boolean{
         var isValid = false
-        if (direccionTextViewEm.text.toString().length < 20||direccionTextViewEm.text.toString().length > 50)
+        if (direccionTextViewEm.text.toString().length < 20)
         {
             direccionTextViewEm.error = "Direccion no valida"
         }
-        else if (nameTextViewEm.text.toString().length < 30||nameTextViewEm.text.toString().length > 100){
+        else if (nameTextViewEm.text.toString().length < 30){
             nameTextViewEm.error = "Nombre no valido"
         }
         else if (cuitTextViewEm.text.toString().length != 11){
             cuitTextViewEm.error = "CUIT no valido"
         }
-        else if (phoneTextViewEm.text.toString().length < 9||phoneTextViewEm.text.toString().length > 14){
+        else if (phoneTextViewEm.text.toString().length < 9){
             phoneTextViewEm.error = "Telefono no valido"
-        }
-        else if (rubroTextViewEm.text.toString().length > 100){
-            rubroTextViewEm.error = "Rubro demasiado largo"
         }
         else
         {

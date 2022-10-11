@@ -82,9 +82,10 @@
             android:id="@+id/nameTextViewEm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
             android:fontFamily="@font/abel"
             android:hint="Nombre de la empresa"
-            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
+            android:maxLength="30"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -97,11 +98,12 @@
             android:id="@+id/phoneTextViewEm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="01234567890+ "
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="Telefono"
-            android:digits="01234567890+ "
             android:inputType="phone"
+            android:maxLength="14"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -115,9 +117,10 @@
             android:id="@+id/direccionTextViewEm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
             android:fontFamily="@font/abel"
             android:hint="Direccion"
-            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
+            android:maxLength="50"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -130,11 +133,12 @@
             android:id="@+id/cuitTextViewEm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="1234567890"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="CUIT (sin guiones)"
-            android:digits="1234567890"
             android:inputType="phone"
+            android:maxLength="11"
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -148,9 +152,10 @@
             android:id="@+id/rubroTextViewEm"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
             android:fontFamily="@font/abel"
             android:hint="Rubro de trabajo"
-            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+            android:maxLength="100"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
