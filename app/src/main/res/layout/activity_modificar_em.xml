@@ -84,6 +84,7 @@
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
             android:hint="Nombre de la empresa"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -99,6 +100,7 @@
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="Telefono"
+            android:digits="01234567890+ "
             android:inputType="phone"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -115,6 +117,7 @@
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
             android:hint="Direccion"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -130,6 +133,7 @@
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="CUIT (sin guiones)"
+            android:digits="1234567890"
             android:inputType="phone"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -146,6 +150,7 @@
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
             android:hint="Rubro de trabajo"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
             android:textColor="@color/black"
             android:textSize="20dp" />
 

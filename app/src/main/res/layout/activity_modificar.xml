@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ "
             android:hint="Nombre y Apellido"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -49,6 +50,7 @@
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="Telefono"
+            android:digits="01234567890+ "
             android:inputType="phone"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -64,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ "
             android:hint="Localidad"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -80,6 +83,7 @@
             android:ems="10"
             android:fontFamily="@font/abel"
             android:hint="DNI"
+            android:digits="1234567890"
             android:inputType="phone"
             android:minHeight="48dp"
             android:textColor="@color/black"
@@ -96,6 +100,7 @@
             android:layout_height="48dp"
             android:fontFamily="@font/abel"
             android:hint="Titulo/s obtenido/s"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
