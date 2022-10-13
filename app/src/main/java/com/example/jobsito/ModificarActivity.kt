@@ -34,7 +34,7 @@ class ModificarActivity : AppCompatActivity() {
         //acceder a los botones guardar, recuperar y eliminar
         saveButton.setOnClickListener {
             //comprueba que ningun campo este vacio
-            if (validateEmpty()||validateLenght()) {
+            if (validate() == true) {
 
                 //crea un documento por email
                 db.collection("users").document(email).set(
@@ -61,29 +61,9 @@ class ModificarActivity : AppCompatActivity() {
 
 
     }
-    private fun validateLenght(): Boolean{
+    private fun validate(): Boolean{
         var isValid = false
-        if (locationTextView.text.toString().length < 10||locationTextView.text.toString().length > 50)
-        {
-            locationTextView.error = "Localidad no valida"
-        }
-        else if (fullNameTextView.text.toString().length < 30){
-            fullNameTextView.error = "Nombre no valido"
-        }
-        else if (dniTextView.text.toString().length < 8){
-            dniTextView.error = "DNI no valido"
-        }
-        else if (phoneTextView.text.toString().length < 9){
-            phoneTextView.error = "Telefono no valido"
-        }
-        else
-        {
-            isValid = true
-        }
-        return isValid
-    }
-    private fun validateEmpty(): Boolean{
-        var isValid = false
+        //valida si esta vacio
         if (locationTextView.text.toString().isBlank())
         {
             locationTextView.error = "Campo vacio"
@@ -100,7 +80,22 @@ class ModificarActivity : AppCompatActivity() {
         else if (tituloTextView.text.toString().isBlank()){
             tituloTextView.setText("Ninguno")
         }
-        else{
+        //valida si el tamaño es correcto
+        else if(locationTextView.text.toString().length < 10)
+        {
+            locationTextView.error = "Localidad no valida"
+        }
+        else if (fullNameTextView.text.toString().length < 10){
+            fullNameTextView.error = "Nombre no valido"
+        }
+        else if (dniTextView.text.toString().length < 8){
+            dniTextView.error = "DNI no valido"
+        }
+        else if (phoneTextView.text.toString().length < 9){
+            phoneTextView.error = "Telefono no valido"
+        }
+        else
+        {
             isValid = true
         }
         return isValid
