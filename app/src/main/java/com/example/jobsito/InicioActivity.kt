@@ -119,8 +119,11 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
 
     override fun onItemClickedProfile(position: Int) {
 
-        val intentPublic = Intent(this,profileViewActivity::class.java)
+        val intentPublic = Intent(this,DescriptionActivity::class.java)
         intentPublic.putExtra("email", posts[position].userName)
+        intentPublic.putExtra("descripcion", posts[position].desciption)
+        intentPublic.putExtra("requisitos", posts[position].requisitos)
+        intentPublic.putExtra("turnos", posts[position].turnos)
         startActivity(intentPublic)
     }
 }

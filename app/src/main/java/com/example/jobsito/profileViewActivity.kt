@@ -19,9 +19,8 @@ class profileViewActivity : AppCompatActivity() {
         Actualizar(email?: "")
         //boton para volver a la pagina de inicio
         backButton.setOnClickListener {
-            //comprueba si sos una empresa para mostrar el boton de borrar
-            val intent = Intent(this, InicioActivity::class.java)
-            intent.putExtra("email", auth.currentUser?.email)
+            val intent = Intent(this, DescriptionActivity::class.java)
+            intent.putExtra("email", email)
             startActivity(intent)
         }
     }

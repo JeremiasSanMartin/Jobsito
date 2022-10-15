@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jobsito">
         <activity
+            android:name=".DescriptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfilePostuladosActivity"
             android:exported="false" />
         <activity

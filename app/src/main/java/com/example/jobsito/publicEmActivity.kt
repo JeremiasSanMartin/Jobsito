@@ -1,14 +1,10 @@
 package com.example.jobsito
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.installations.Utils
-import kotlinx.android.synthetic.main.activity_empresa.*
-import kotlinx.android.synthetic.main.activity_inicio_em.*
 import kotlinx.android.synthetic.main.activity_public_em.*
 import java.util.*
 
@@ -24,18 +20,28 @@ class publicEmActivity : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
 
-
         publicButton.setOnClickListener {
-            if (postTextView.text.toString() == "" || postTitleTextView.text.toString() == "" ) {
+            if (postTextView.text.toString() == "" || postTitleTextView.text.toString() == ""
+                || postDescriptionTextView.text.toString() == ""|| postRequisitosTextView.text.toString() == ""
+                || postTurnoTextView.text.toString() == "") {
                 Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show()
             } else {
+                //datos que se muestran princialmente
                 val titleString = postTitleTextView.text.toString()
                 val postString = postTextView.text.toString()
                 val date = Date()
                 val userName = email
 
-                val post = Post(titleString,postString, date, userName)
-                db.collection("posts").add(post)
+                //datos detallados
+                val description = postDescriptionTextView.text.toString()
+                val requisitos = postRequisitosTextView.text.toString()
+                val turnos = postTurnoTextView.text.toString()
+
+
+                val post = Post(titleString,postString, date, userName, description,requisitos, turnos)
+                db.collection("posts").add(
+                    post
+                )
                     .addOnSuccessListener {
                         finish()
 
@@ -43,6 +49,7 @@ class publicEmActivity : AppCompatActivity() {
                         println("error en crear el post")
                     }
             }
+
 
         }
 

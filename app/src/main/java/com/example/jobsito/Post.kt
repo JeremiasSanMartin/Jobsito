@@ -10,7 +10,12 @@ class Post(
     val post: String? = null,
     val date: Date? = null,
     val userName: String? = null,
-    val likes: ArrayList<String>? = arrayListOf()
+    val desciption:String? = null,
+    val requisitos:String? = null,
+    val turnos:String? = null,
+    val likes: ArrayList<String>? = arrayListOf(),
+
+
 ) {
     //ponemos el id para que firebase no agregue un uid
     @Exclude

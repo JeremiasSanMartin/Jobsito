@@ -45,7 +45,9 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         val post = dataset[position]
         val likes = post.likes!!.toMutableList()
         var liked = likes.contains(auth.currentUser!!.email!!)
-
+        var description = post.desciption
+        var requisitos = post.requisitos
+        var turnos = post.turnos
 
         //añade los datos al post
 

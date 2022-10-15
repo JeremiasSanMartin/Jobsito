@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".publicEmActivity">
+    tools:context=".DescriptionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,17 +23,17 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+
             <Button
-                android:id="@+id/cancelButton"
+                android:id="@+id/backInicioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/archivo_black"
-                android:text="Cancelar"
+                android:text="Volver"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
-
 
             <Space
                 android:layout_width="8dp"
@@ -41,13 +41,13 @@
                 android:layout_weight="0" />
 
             <Button
-                android:id="@+id/publicButton"
+                android:id="@+id/profileButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/archivo_black"
-                android:text="Publicar"
+                android:text="Ver perfil"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
@@ -57,117 +57,76 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abel"
-            android:text="(Esta seccion se mostrara en la publicacion general)"
-            android:textSize="18sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <EditText
-            android:id="@+id/postTitleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/abel"
-            android:gravity="start|top"
-            android:hint="Titulo de tu empleo"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <EditText
-            android:id="@+id/postTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/abel"
-            android:gravity="start|top"
-            android:hint="Subtitulo"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp"
-            android:importantForAutofill="no" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:fontFamily="@font/abeezee"
+            android:text="Descripcion detallada del empleo"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/DescriptionTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:fontFamily="@font/abel"
-            android:text="(La siguiente seccion son para datos mas detallados al entrar en la publicacion)"
-            android:textSize="18sp" />
+            android:text="."
+            android:textColor="@color/black"
+            android:textSize="17dp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="8dp" />
 
-        <EditText
-            android:id="@+id/postDescriptionTextView"
+        <TextView
+            android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:fontFamily="@font/abeezee"
+            android:text="Requisitos del empleo"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/requisitosTextView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
             android:fontFamily="@font/abel"
-            android:gravity="start|top"
-            android:hint="Descripcion detallada del empleo"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp" />
+            android:text="."
+            android:textColor="@color/black"
+            android:textSize="17dp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="8dp" />
 
-        <EditText
-            android:id="@+id/postRequisitosTextView"
+        <TextView
+            android:id="@+id/textView21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/abel"
-            android:gravity="start|top"
-            android:hint="Requisitos del empleo"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp" />
+            android:fontFamily="@font/abeezee"
+            android:text="Turno/s discponible/s"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-        <Space
+        <TextView
+            android:id="@+id/turnoTextView"
             android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <EditText
-            android:id="@+id/postTurnoTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_height="25dp"
             android:fontFamily="@font/abel"
-            android:gravity="start|top"
-            android:hint="Turno/s discponible/s"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp"
-            android:importantForAutofill="no" />
-
+            android:text="."
+            android:textColor="@color/black"
+            android:textSize="17dp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
