@@ -64,15 +64,17 @@ class ModificarActivity : AppCompatActivity() {
     private fun validate(): Boolean{
         var isValid = false
         //valida si esta vacio
-        if (locationTextView.text.toString().isBlank())
+        if (fullNameTextView.text.toString().isBlank())
         {
-            locationTextView.error = "Campo vacio"
-        }
-        else if (fullNameTextView.text.toString().isBlank()){
             fullNameTextView.error = "Campo vacio"
         }
-        else if (phoneTextView.text.toString().isBlank()){
+        else if (phoneTextView.text.toString().isBlank())
+        {
             phoneTextView.error = "Campo vacio"
+        }
+        else if (locationTextView.text.toString().isBlank())
+        {
+            locationTextView.error = "Campo vacio"
         }
         else if (dniTextView.text.toString().isBlank() ){
             dniTextView.error = "Campo vacio"
@@ -81,18 +83,21 @@ class ModificarActivity : AppCompatActivity() {
             tituloTextView.setText("Ninguno")
         }
         //valida si el tamaño es correcto
+        else if (fullNameTextView.text.toString().length < 10){
+            fullNameTextView.error = "Nombre no valido"
+        }
+        else if (phoneTextView.text.toString().length < 9){
+            phoneTextView.error = "Telefono no valido"
+        }
         else if(locationTextView.text.toString().length < 10)
         {
             locationTextView.error = "Localidad no valida"
         }
-        else if (fullNameTextView.text.toString().length < 10){
-            fullNameTextView.error = "Nombre no valido"
-        }
         else if (dniTextView.text.toString().length < 8){
             dniTextView.error = "DNI no valido"
         }
-        else if (phoneTextView.text.toString().length < 9){
-            phoneTextView.error = "Telefono no valido"
+        else if (tituloTextView.text.toString().length < 8){
+            tituloTextView.error = "Titlulo muy corto"
         }
         else
         {

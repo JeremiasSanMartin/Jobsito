@@ -58,35 +58,35 @@ class ModificarEmActivity : AppCompatActivity() {
     private fun validate(): Boolean{
         var isValid = false
         //valida si esta vacio
-        if (direccionTextViewEm.text.toString().isBlank())
-        {
-            direccionTextViewEm.error = "Campo vacio"
-        }
-        else if (nameTextViewEm.text.toString().isBlank()){
+        if (nameTextViewEm.text.toString().isBlank()){
             nameTextViewEm.error = "Campo vacio"
-        }
-        else if (cuitTextViewEm.text.toString().isBlank()){
-            cuitTextViewEm.error = "Campo vacio"
         }
         else if (phoneTextViewEm.text.toString().isBlank() ){
             phoneTextViewEm.error = "Campo vacio"
+        }
+        else if (direccionTextViewEm.text.toString().isBlank())
+        {
+            direccionTextViewEm.error = "Campo vacio"
+        }
+        else if (cuitTextViewEm.text.toString().isBlank()){
+            cuitTextViewEm.error = "Campo vacio"
         }
         else if (rubroTextViewEm.text.toString().isBlank()){
             rubroTextViewEm.setText("Ninguno")
         }
         //comprueba el tamaño
+        else if (nameTextViewEm.text.toString().length < 10){
+            nameTextViewEm.error = "Nombre no valido"
+        }
+        else if (phoneTextViewEm.text.toString().length < 9){
+            phoneTextViewEm.error = "Telefono no valido"
+        }
         else if (direccionTextViewEm.text.toString().length < 10)
         {
             direccionTextViewEm.error = "Direccion no valida"
         }
-        else if (nameTextViewEm.text.toString().length < 30){
-            nameTextViewEm.error = "Nombre no valido"
-        }
         else if (cuitTextViewEm.text.toString().length != 11){
             cuitTextViewEm.error = "CUIT no valido"
-        }
-        else if (phoneTextViewEm.text.toString().length < 9){
-            phoneTextViewEm.error = "Telefono no valido"
         }
         else
         {
