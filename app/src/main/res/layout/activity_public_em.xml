@@ -82,12 +82,13 @@
             android:id="@+id/postTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:gravity="start|top"
             android:hint="Titulo de tu empleo"
             android:inputType="textMultiLine"
-            android:maxLength="30"
+            android:maxLength="25"
             android:minHeight="48dp" />
 
         <Space
@@ -98,14 +99,15 @@
             android:id="@+id/postTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:gravity="start|top"
             android:hint="Subtitulo"
+            android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp"
-            android:importantForAutofill="no" />
+            android:maxLength="60"
+            android:minHeight="48dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -127,12 +129,13 @@
             android:id="@+id/postDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:gravity="start|top"
             android:hint="Descripcion detallada del empleo"
             android:inputType="textMultiLine"
-            android:maxLength="30"
+            android:maxLength="100"
             android:minHeight="48dp" />
 
         <Space
@@ -143,30 +146,37 @@
             android:id="@+id/postRequisitosTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:ems="10"
             android:fontFamily="@font/abel"
             android:gravity="start|top"
             android:hint="Requisitos del empleo"
             android:inputType="textMultiLine"
-            android:maxLength="30"
+            android:maxLength="100"
             android:minHeight="48dp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="8dp" />
 
-        <EditText
-            android:id="@+id/postTurnoTextView"
+        <TextView
+            android:id="@+id/textView23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/abel"
+            android:text="Turno disponible:"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTurnos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
             android:ems="10"
             android:fontFamily="@font/abel"
+            android:foregroundTint="@color/colorPrimaryGray"
             android:gravity="start|top"
-            android:hint="Turno/s discponible/s"
-            android:inputType="textMultiLine"
-            android:maxLength="30"
-            android:minHeight="48dp"
-            android:importantForAutofill="no" />
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 

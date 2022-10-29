@@ -59,7 +59,6 @@ class ModificarActivity : AppCompatActivity() {
             }
         }
 
-
     }
     private fun validate(): Boolean{
         var isValid = false

@@ -72,7 +72,7 @@ class ModificarEmActivity : AppCompatActivity() {
             cuitTextViewEm.error = "Campo vacio"
         }
         else if (rubroTextViewEm.text.toString().isBlank()){
-            rubroTextViewEm.setText("Ninguno")
+            rubroTextViewEm.error = "Campo vacio"
         }
         //comprueba el tamaño
         else if (nameTextViewEm.text.toString().length < 10){
@@ -87,6 +87,9 @@ class ModificarEmActivity : AppCompatActivity() {
         }
         else if (cuitTextViewEm.text.toString().length != 11){
             cuitTextViewEm.error = "CUIT no valido"
+        }
+        else if (rubroTextViewEm.text.toString().length < 10){
+            rubroTextViewEm.error = "rubro no valido"
         }
         else
         {
