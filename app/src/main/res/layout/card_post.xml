@@ -92,6 +92,7 @@
             android:fontFamily="@font/abeezee"
             android:text="Postularse"
             android:textColor="@color/black"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userCard"

@@ -95,13 +95,13 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
 
             if (tipo.equals("empresa")) {
                 holder.layout.delBtn.visibility = View.VISIBLE
-                holder.layout.likeBtn.visibility = View.INVISIBLE
 
                 //si es una empresa envia el uid para los postulados
                 holder.layout.setOnClickListener {
                     onItemClickListener.onItemClicked(uid = post.uid!!)
                 }
             }else{
+                holder.layout.likeBtn.visibility = View.VISIBLE
                 //y si es una persona simplemente envia la posicion para ver el perfil
                 holder.layout.setOnClickListener {
                     onItemClickListener.onItemClickedProfile(position)
