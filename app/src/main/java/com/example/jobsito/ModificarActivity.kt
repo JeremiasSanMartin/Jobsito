@@ -34,7 +34,7 @@ class ModificarActivity : AppCompatActivity() {
         //acceder a los botones guardar, recuperar y eliminar
         saveButton.setOnClickListener {
             //comprueba que ningun campo este vacio
-            if (validate() == true) {
+            if (validate()) {
 
                 //crea un documento por email
                 db.collection("users").document(email).set(

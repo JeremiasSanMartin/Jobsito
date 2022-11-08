@@ -30,6 +30,9 @@ class DescriptionActivity : AppCompatActivity() {
         profileButton.setOnClickListener{
             val intent = Intent(this, profileViewActivity::class.java)
             intent.putExtra("email", email)
+            intent.putExtra("descripcion", descripcion)
+            intent.putExtra("requisitos", requisitos)
+            intent.putExtra("turnos", turnos)
             startActivity(intent)
         }
     }

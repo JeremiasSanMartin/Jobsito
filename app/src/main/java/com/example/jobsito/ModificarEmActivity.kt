@@ -75,7 +75,7 @@ class ModificarEmActivity : AppCompatActivity() {
             rubroTextViewEm.error = "Campo vacio"
         }
         //comprueba el tamaño
-        else if (nameTextViewEm.text.toString().length < 10){
+        else if (nameTextViewEm.text.toString().length < 3){
             nameTextViewEm.error = "Nombre no valido"
         }
         else if (phoneTextViewEm.text.toString().length < 9){

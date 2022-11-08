@@ -28,8 +28,10 @@ class chooseActivity : AppCompatActivity() {
     }
 
     private fun setup(email: String) {
-        //comprueba que radio button esta seleccionado y muestra la pantalla correspondiente dandole una categoria al usuario, en caso de que no se elija ninguno da un mensaje
+        //comprueba que radio button esta seleccionado y muestra la pantalla correspondiente dandole una categoria al usuario
+        // en caso de que no se elija ninguno imprime un mensaje
         continuarButton.setOnClickListener {
+            //si el radio buton de persona esta elegido se le añade al usuario el tipo "trabajo"
             if (personaRadioButton.isChecked) {
                 db.collection("users").document(email).collection("prueba")
                     .document("prueba").set(
@@ -49,6 +51,7 @@ class chooseActivity : AppCompatActivity() {
                 Toast.makeText(this, "ingreso como Persona", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
 
+            //si el radio buton de empresa esta elegido se le añade al usuario el tipo "empresa"
             } else if (empresaRadioButton.isChecked) {
                 db.collection("users").document(email).collection("prueba")
                     .document("prueba").set(
@@ -66,8 +69,9 @@ class chooseActivity : AppCompatActivity() {
                 Toast.makeText(this, "ingreso como Empresa", Toast.LENGTH_SHORT).show()
                 startActivity(empresaIntent)
 
+                //en caso contrario avisa que se debe ingresar uno
             } else {
-                Toast.makeText(this, "Debe seleccionar 1", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Debe seleccionar un tipo", Toast.LENGTH_SHORT).show()
             }
 
 

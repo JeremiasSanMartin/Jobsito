@@ -16,11 +16,17 @@ class profileViewActivity : AppCompatActivity() {
         //toma el email de de la actividad anterior para mostrar el perfil
         val bundle = intent.extras
         val email = bundle?.getString("email")
+        val descripcion = bundle?.getString("descripcion")
+        val requisitos = bundle?.getString("requisitos")
+        val turnos = bundle?.getString("turnos")
         Actualizar(email?: "")
         //boton para volver a la pagina de inicio
         backButton.setOnClickListener {
             val intent = Intent(this, DescriptionActivity::class.java)
             intent.putExtra("email", email)
+            intent.putExtra("descripcion", descripcion)
+            intent.putExtra("requisitos", requisitos)
+            intent.putExtra("turnos", turnos)
             startActivity(intent)
         }
     }

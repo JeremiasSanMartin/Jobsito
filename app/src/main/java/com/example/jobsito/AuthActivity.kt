@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         title = "Bienvenido a Jobsito"
         googleButton.setOnClickListener {
 
-            //conprobacion de autenticacion por google
+            //comprobacion de autenticacion por google
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -146,32 +146,38 @@ class MainActivity : AppCompatActivity() {
                         db.collection("users").document(email).get()
                             .addOnSuccessListener { documento ->
                                 datoEmpresa = documento.data?.get("cuit").toString()
+                 //si el tipo es igual a trabajo
                 if (tipo == "trabajo") {
 
+                    //si no ingresaste todos los campos del perfil, envia a la actividad modificar
                     if (datoPersona == ""){
                         val modificarIntent = Intent(this, ModificarActivity::class.java).apply {
                             putExtra("email", email)
                         }
                         startActivity(modificarIntent)
                     }else{
+                        //en caso contrario envia al inicio
                         val inicioIntent = Intent(this, InicioActivity::class.java).apply {
                             putExtra("email", email)
                     }
                         startActivity(inicioIntent)
                     }
+                //si el tipo es igual a empresa
                 } else if (tipo == "empresa") {
+                    //si no ingresaste todos los campos del perfil, envia a la actividad modificar
                     if (datoEmpresa == ""){
                         val modificarEmIntent = Intent(this, ModificarEmActivity::class.java).apply {
                             putExtra("email", email)
                         }
                         startActivity(modificarEmIntent)
+                        //en caso contrario envia al inicio
                     }else{
                         val empresaIntent = Intent(this, InicioEmActivity::class.java).apply {
                             putExtra("email", email)
                         }
                         startActivity(empresaIntent)
                     }
-
+                //si no tenes ningun tipo envia a la activity para elegir uno
                 } else {
 
                     val chooseIntent = Intent(this, chooseActivity::class.java).apply {

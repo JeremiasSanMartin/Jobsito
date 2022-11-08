@@ -1,5 +1,6 @@
 package com.example.jobsito
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -46,6 +47,10 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
 
 
         }
+        val prefs =
+            getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.apply()
 
         //boton para moverse entre pantallas
         perfilButton2.setOnClickListener {
@@ -114,7 +119,7 @@ class InicioActivity : AppCompatActivity(),OnItemClickListener {
         startActivity(homeIntent)
     }
     override fun onItemClicked(uid : String) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onItemClickedProfile(position: Int) {

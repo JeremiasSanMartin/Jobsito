@@ -79,7 +79,7 @@
         <TextView
             android:id="@+id/DescriptionTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -101,7 +101,7 @@
         <TextView
             android:id="@+id/requisitosTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -123,7 +123,7 @@
         <TextView
             android:id="@+id/turnoTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
