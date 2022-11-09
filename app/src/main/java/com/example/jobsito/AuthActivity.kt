@@ -178,7 +178,11 @@ class MainActivity : AppCompatActivity() {
                         startActivity(empresaIntent)
                     }
                 //si no tenes ningun tipo envia a la activity para elegir uno
-                } else {
+                }else if (tipo == "BAN") {
+                    val banIntent = Intent(this, BanActivity::class.java).apply {
+                    }
+                    startActivity(banIntent)
+                }else {
 
                     val chooseIntent = Intent(this, chooseActivity::class.java).apply {
                         putExtra("email", email)

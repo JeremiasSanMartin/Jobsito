@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jobsito">
         <activity
+            android:name=".BanActivity"
+            android:exported="false" />
+        <activity
             android:name=".DescriptionActivity"
             android:exported="false" />
         <activity
@@ -42,12 +45,12 @@
         <activity
             android:name=".ModificarActivity"
             android:exported="false" />
-        <activity
+        <!--activity
             android:name=".PerfilPersona"
             android:exported="false" />
         <activity
             android:name=".InicioPersona"
-            android:exported="false" />
+            android:exported="false" /-->
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
