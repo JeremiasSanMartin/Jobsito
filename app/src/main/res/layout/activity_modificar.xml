@@ -31,13 +31,14 @@
         <EditText
             android:id="@+id/fullNameTextView"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Nombre y Apellido"
             android:maxLength="40"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Space
             android:layout_width="match_parent"
@@ -66,13 +67,14 @@
         <EditText
             android:id="@+id/locationTextView"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Localidad"
             android:maxLength="50"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Space
             android:layout_width="match_parent"
@@ -101,12 +103,13 @@
         <EditText
             android:id="@+id/tituloTextView"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Titulo/s obtenido/s"
-            android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890 áéíóúÁÉÍÓÚ"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Space
             android:layout_width="match_parent"

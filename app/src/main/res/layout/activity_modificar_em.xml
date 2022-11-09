@@ -81,13 +81,14 @@
         <EditText
             android:id="@+id/nameTextViewEm"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890áéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Nombre de la empresa"
             android:maxLength="30"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Space
             android:layout_width="match_parent"
@@ -116,13 +117,14 @@
         <EditText
             android:id="@+id/direccionTextViewEm"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 1234567890áéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Direccion"
             android:maxLength="50"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <Space
             android:layout_width="match_parent"
@@ -151,13 +153,14 @@
         <EditText
             android:id="@+id/rubroTextViewEm"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:digits="abcdefghijklmnñopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ"
             android:fontFamily="@font/abel"
             android:hint="Rubro de trabajo"
             android:maxLength="100"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

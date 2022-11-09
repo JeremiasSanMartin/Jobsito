@@ -31,7 +31,7 @@
         <TextView
             android:id="@+id/emailTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="Email"
             android:textColor="@color/black"
@@ -53,7 +53,7 @@
         <TextView
             android:id="@+id/fullNameShowTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -75,7 +75,7 @@
         <TextView
             android:id="@+id/phoneShowTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -97,7 +97,7 @@
         <TextView
             android:id="@+id/localidadShowTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -119,7 +119,7 @@
         <TextView
             android:id="@+id/dniShowTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
@@ -141,7 +141,7 @@
         <TextView
             android:id="@+id/tituloShowTextView"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/abel"
             android:text="."
             android:textColor="@color/black"
