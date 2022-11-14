@@ -82,13 +82,13 @@ class ModificarActivity : AppCompatActivity() {
             tituloTextView.setText("Ninguno")
         }
         //valida si el tamaño es correcto
-        else if (fullNameTextView.text.toString().length < 10){
+        else if (fullNameTextView.text.toString().length < 8){
             fullNameTextView.error = "Nombre no valido"
         }
         else if (phoneTextView.text.toString().length < 9){
             phoneTextView.error = "Telefono no valido"
         }
-        else if(locationTextView.text.toString().length < 10)
+        else if(locationTextView.text.toString().length < 3)
         {
             locationTextView.error = "Localidad no valida"
         }

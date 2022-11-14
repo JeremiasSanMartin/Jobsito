@@ -81,14 +81,14 @@ class ModificarEmActivity : AppCompatActivity() {
         else if (phoneTextViewEm.text.toString().length < 9){
             phoneTextViewEm.error = "Telefono no valido"
         }
-        else if (direccionTextViewEm.text.toString().length < 10)
+        else if (direccionTextViewEm.text.toString().length < 8)
         {
             direccionTextViewEm.error = "Direccion no valida"
         }
         else if (cuitTextViewEm.text.toString().length != 11){
             cuitTextViewEm.error = "CUIT no valido"
         }
-        else if (rubroTextViewEm.text.toString().length < 10){
+        else if (rubroTextViewEm.text.toString().length < 5){
             rubroTextViewEm.error = "rubro no valido"
         }
         else
