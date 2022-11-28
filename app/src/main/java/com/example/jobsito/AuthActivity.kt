@@ -101,17 +101,24 @@ class MainActivity : AppCompatActivity() {
     private fun setup() {
 
         title = "Bienvenido a Jobsito"
+
+        //boton con icono de google
         googleButton.setOnClickListener {
 
-            //comprobacion de autenticacion por google
+            //crea la configuracion de google                        aca marca que la ventana emergente sea por defecto
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    //pide el token id asociado a nuestra app
                 .requestIdToken(getString(R.string.default_web_client_id))
+                    //solicita el email del usuario
                 .requestEmail()
+                    //ejecuta la configuracion
                 .build()
 
+            //cliente de autenticacion usa como configuracion a la que creamos arriba
             val googleClient = GoogleSignIn.getClient(this, googleConf)
             googleClient.signOut()
 
+            //da un resultado en caso de que la actividad sea correcta, este codigo es GOOGLE_SING_IN
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
 
         }
@@ -210,22 +217,29 @@ class MainActivity : AppCompatActivity() {
         }
         backPressedTime = System.currentTimeMillis()
     }
+
     //comprobacion de google una vez ingresada la cuenta
+    //sobrescribe la funcion que se usa cuando la actividad optiene un resultada
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        //si el requesCode es GOOGLE_SIGN_IN osea el correcto ya que ese es el que se obtiene al ser el login exitoso
         if (requestCode == GOOGLE_SIGN_IN) {
+
+            //obtiene datos de la cuenta
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
             try {
-
-
+                //obtiene la cuenta
                 val account = task.getResult(ApiException::class.java)
 
+                //pregunta si la cuenta no es nula
                 if (account != null) {
 
+                    //en caso de no ser nula obtiene la credencial
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
 
+                    //envia esa credencial a firebase y si sale bien va a la funcion de ShowHome
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {

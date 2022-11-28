@@ -14,11 +14,35 @@
       },
       "oauth_client": [
         {
-          "client_id": "710673535008-jcltm8mtqqkm0n18aoiguk87irk0qfa6.apps.googleusercontent.com",
+          "client_id": "710673535008-397ta52gj07jks5mumbo8g0qu59f2v0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobsito",
+            "certificate_hash": "6e4991c9b800378b76d7b3b00bb97636fa9fe228"
+          }
+        },
+        {
+          "client_id": "710673535008-au06lqd6n5etlgk00emvp92gmp31abku.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.jobsito",
             "certificate_hash": "3cd0549051e247f6fc15ea0f08b369a6eb316b57"
+          }
+        },
+        {
+          "client_id": "710673535008-c9dpcfcopebmiohh68653j719lrqa70e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobsito",
+            "certificate_hash": "7f9459cc1692dc6a12f17e0e90a33c489e0082f6"
+          }
+        },
+        {
+          "client_id": "710673535008-trga9qbbudd1qq8o3o3p469n3f3jsin3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jobsito",
+            "certificate_hash": "118d70e0ab21fe28e2ba2676d26f9342c579fa10"
           }
         },
         {

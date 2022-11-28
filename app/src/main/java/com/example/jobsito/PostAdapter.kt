@@ -31,7 +31,9 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
     class ViewHolder(val layout: View) : RecyclerView.ViewHolder(layout)
 
 
+    //sobrescribe la funcion
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        //crea el layout usando la targeta de base en la actividad "card_post"
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.card_post, parent, false)
 
         return ViewHolder(layout)
@@ -40,22 +42,25 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
     //darle la cantidad de items que hay
     override fun getItemCount() = dataset.size
 
-    //muestra la informacion del post
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        //crea variables que guardan los datos para luego pasarlos al layout de card_post
         val post = dataset[position]
         val likes = post.likes!!.toMutableList()
         var liked = likes.contains(auth.currentUser!!.email!!)
+
+        //estos no los muestra en el card_post pero aun asi guarda los datos para poder utilizarlos como descipcion detallada
         var description = post.desciption
         var requisitos = post.requisitos
         var turnos = post.turnos
 
-        //añade los datos al post
+        //muestra la informacion del post igualando los datos que llegan al adaptador a los textfield del card_post
 
         holder.layout.likesCount.text = "${likes.size} Postulados"
         holder.layout.userCard.text = post.userName
         holder.layout.postCard.text = post.post
         holder.layout.titleCard.text = post.title
 
+        //crea el formate de la fecha en dias/meses/años
         val sdf = SimpleDateFormat("dd/M/yyyy")
 
         holder.layout.dateCard.text = sdf.format(post.date)
@@ -63,16 +68,18 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
         //muestra el color del like
         setColor(liked, holder.layout.likeBtn)
 
-        //controla si le doy like o no
+        //controla si le di like o no
         holder.layout.likeBtn.setOnClickListener {
             liked = !liked
             setColor(liked, holder.layout.likeBtn)
 
             //si le doy like se añade mi id en caso contrario se quita mi id
             if (liked) {
+                //añade el like
                 likes.add(auth.currentUser!!.email!!)
             }
             else {
+                //quita el like
                 likes.remove(auth.currentUser!!.email!! )
             }
 
@@ -92,7 +99,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
             .get().addOnSuccessListener { documento ->
             tipo = documento.data?.get("tipo").toString()
 
-
+            //si eres una empresa muestra solo el boton de borrar publicacion
             if (tipo.equals("empresa")) {
                 holder.layout.delBtn.visibility = View.VISIBLE
 
@@ -101,6 +108,7 @@ class PostAdapter(private val activity: Activity, private val dataset: List<Post
                     onItemClickListener.onItemClicked(uid = post.uid!!)
                 }
             }else{
+                //si eres una persona muestra solo el boton de postularse
                 holder.layout.likeBtn.visibility = View.VISIBLE
                 //y si es una persona simplemente envia la posicion para ver el perfil
                 holder.layout.setOnClickListener {
